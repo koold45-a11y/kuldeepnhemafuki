@@ -314,7 +314,7 @@ function Skills() {
         <div className="grid gap-16 md:grid-cols-2">
           <div>
             <h2 className="font-display text-5xl md:text-7xl mb-12 leading-[0.95]">
-              A toolkit built for <span className="italic font-serif-display text-gold">storytelling.</span>
+              A toolkit built for <span className="italic font-serif-display text-gold font-sans font-normal not-italic">storytelling</span>.
             </h2>
             <div className="grid gap-8 sm:grid-cols-2">
               {skillGroups.map((g) => (
