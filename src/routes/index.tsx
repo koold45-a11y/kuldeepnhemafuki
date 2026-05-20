@@ -207,7 +207,7 @@ function Experience() {
     <section id="experience" className="relative bg-ink py-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionLabel num="02" title="Experience" />
-        <h2 className="font-display text-5xl md:text-7xl mb-20">The reel of <span className="italic font-serif-display text-gold">years.</span></h2>
+        <h2 className="font-display text-5xl md:text-7xl mb-20">The reel of <span className="italic font-serif-display text-gold font-sans font-normal not-italic">years</span>.</h2>
         <div className="relative">
           <div className="absolute left-0 md:left-[20%] top-0 bottom-0 w-px bg-border" />
           <ul className="space-y-16">
