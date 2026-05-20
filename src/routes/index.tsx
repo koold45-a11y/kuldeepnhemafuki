@@ -87,7 +87,7 @@ function Hero() {
         <h1 className="font-display text-[18vw] leading-[0.82] tracking-tight md:text-[12rem] animate-rise [animation-delay:120ms]">
           KULDEEP
           <br />
-          <span className="text-gold italic font-serif-display text-[14vw] md:text-[9rem]">Nhemafuki.</span>
+          <span className="text-gold italic font-serif-display text-[14vw] md:text-[9rem] font-sans font-normal">Nhemafuki</span>
         </h1>
         <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-end">
           <p className="max-w-md font-serif-display text-2xl italic text-foreground/90 animate-rise [animation-delay:240ms]">
