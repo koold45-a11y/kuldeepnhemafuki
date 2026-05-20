@@ -247,7 +247,7 @@ function Work() {
         <SectionLabel num="03" title="Selected Work" />
         <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <h2 className="font-display text-5xl md:text-7xl max-w-2xl leading-[0.95]">
-            Stories shaped in <span className="italic font-serif-display text-gold">motion.</span>
+            Stories shaped in <span className="italic font-serif-display text-gold font-sans font-normal not-italic">motion</span>.
           </h2>
           <p className="max-w-sm text-muted-foreground">
             A selection of recent work across animation, branding and campaign films. Each frame, deliberate.
