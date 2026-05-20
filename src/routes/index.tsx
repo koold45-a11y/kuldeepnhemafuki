@@ -372,7 +372,7 @@ function Services() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionLabel num="05" title="Services" />
         <h2 className="font-display text-5xl md:text-7xl mb-16 max-w-3xl leading-[0.95]">
-          What I bring to the <span className="italic font-serif-display text-gold">edit room.</span>
+          What I bring to the <span className="italic font-serif-display text-gold font-sans font-normal not-italic">edit room</span>.
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-border">
           {services.map((s) => (
