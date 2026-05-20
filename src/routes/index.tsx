@@ -402,7 +402,7 @@ function Contact() {
             <h2 className="font-display text-6xl md:text-9xl leading-[0.9]">
               Let's create
               <br />
-              <span className="italic font-serif-display text-gold">something cinematic</span>
+              <span className="italic font-serif-display text-gold font-sans font-normal not-italic">something cinematic</span>
               <br />
               together.
             </h2>
