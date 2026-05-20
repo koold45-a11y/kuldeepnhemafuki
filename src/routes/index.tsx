@@ -144,7 +144,7 @@ function About() {
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-7">
             <h2 className="font-display text-6xl leading-[0.95] md:text-8xl">
-              A storyteller who <span className="text-gold italic font-serif-display">draws</span> with light, rhythm and meaning.
+              A storyteller who <span className="text-gold italic font-serif-display font-sans font-normal not-italic">draws</span> with light, rhythm and meaning.
             </h2>
             <div className="mt-10 space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
@@ -207,7 +207,7 @@ function Experience() {
     <section id="experience" className="relative bg-ink py-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionLabel num="02" title="Experience" />
-        <h2 className="font-display text-5xl md:text-7xl mb-20">The reel of <span className="italic font-serif-display text-gold">years.</span></h2>
+        <h2 className="font-display text-5xl md:text-7xl mb-20">The reel of <span className="italic font-serif-display text-gold font-sans font-normal not-italic">years</span>.</h2>
         <div className="relative">
           <div className="absolute left-0 md:left-[20%] top-0 bottom-0 w-px bg-border" />
           <ul className="space-y-16">
@@ -247,7 +247,7 @@ function Work() {
         <SectionLabel num="03" title="Selected Work" />
         <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <h2 className="font-display text-5xl md:text-7xl max-w-2xl leading-[0.95]">
-            Stories shaped in <span className="italic font-serif-display text-gold">motion.</span>
+            Stories shaped in <span className="italic font-serif-display text-gold font-sans font-normal not-italic">motion</span>.
           </h2>
           <p className="max-w-sm text-muted-foreground">
             A selection of recent work across animation, branding and campaign films. Each frame, deliberate.
@@ -314,7 +314,7 @@ function Skills() {
         <div className="grid gap-16 md:grid-cols-2">
           <div>
             <h2 className="font-display text-5xl md:text-7xl mb-12 leading-[0.95]">
-              A toolkit built for <span className="italic font-serif-display text-gold">storytelling.</span>
+              A toolkit built for <span className="italic font-serif-display text-gold font-sans font-normal not-italic">storytelling</span>.
             </h2>
             <div className="grid gap-8 sm:grid-cols-2">
               {skillGroups.map((g) => (
@@ -372,7 +372,7 @@ function Services() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionLabel num="05" title="Services" />
         <h2 className="font-display text-5xl md:text-7xl mb-16 max-w-3xl leading-[0.95]">
-          What I bring to the <span className="italic font-serif-display text-gold">edit room.</span>
+          What I bring to the <span className="italic font-serif-display text-gold font-sans font-normal not-italic">edit room</span>.
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-border">
           {services.map((s) => (
@@ -402,7 +402,7 @@ function Contact() {
             <h2 className="font-display text-6xl md:text-9xl leading-[0.9]">
               Let's create
               <br />
-              <span className="italic font-serif-display text-gold">something cinematic</span>
+              <span className="italic font-serif-display text-gold font-sans font-normal not-italic">something cinematic</span>
               <br />
               together.
             </h2>
