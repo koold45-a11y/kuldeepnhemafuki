@@ -231,7 +231,47 @@ function Experience() {
   );
 }
 
-const workCategories = [
+/**
+ * ────────────────────────────────────────────────────────────────
+ *  HOW TO ADD YOUR OWN WORK
+ * ────────────────────────────────────────────────────────────────
+ *  Each sub-category has an `items` array. Add objects like:
+ *
+ *    { type: "image", src: "/my-work/poster.jpg", title: "..." }
+ *    { type: "video", src: "/my-work/reel.mp4", poster: "/cover.jpg", title: "..." }
+ *    { type: "youtube", src: "https://www.youtube.com/embed/VIDEO_ID", title: "..." }
+ *
+ *  - Images/videos: drop into `public/` and reference as "/filename.ext"
+ *    (or `src/assets/` and import at top of this file).
+ *  - YouTube/Vimeo: use the EMBED url (e.g. youtube.com/embed/XXXX).
+ * ────────────────────────────────────────────────────────────────
+ */
+
+type WorkItem =
+  | { type: "image"; src: string; title: string }
+  | { type: "video"; src: string; poster?: string; title: string }
+  | { type: "youtube"; src: string; title: string };
+
+type SubCategory = {
+  name: string;
+  count: string;
+  highlights: string[];
+  items: WorkItem[];
+};
+
+const workCategories: Array<{
+  id: string;
+  num: string;
+  label: string;
+  cover: string;
+  title: string;
+  winningTitle: string;
+  tag: string;
+  desc: string;
+  role: string;
+  tools: string;
+  subs: SubCategory[];
+}> = [
   {
     id: "social",
     num: "01",
@@ -244,10 +284,43 @@ const workCategories = [
     role: "Illustrator · Animator",
     tools: "Procreate · After Effects",
     subs: [
-      { name: "Instagram Carousels", count: "42 sets" },
-      { name: "Story Templates", count: "18 systems" },
-      { name: "Reels Covers", count: "60+ frames" },
-      { name: "Brand Posts", count: "Ongoing" },
+      {
+        name: "Instagram Carousels",
+        count: "42 sets",
+        highlights: ["Avg. 18k organic reach / set", "Featured on @nepalcreatives", "Built for 1:1 + 4:5 ratios"],
+        items: [
+          { type: "image", src: work4, title: "Hands That Grow · Slide 01" },
+          { type: "image", src: work3, title: "Cardamom Story · Slide 04" },
+          { type: "image", src: work2, title: "DCA Awareness · Slide 07" },
+        ],
+      },
+      {
+        name: "Story Templates",
+        count: "18 systems",
+        highlights: ["Editable AE templates", "Brand-locked colour systems", "9:16 motion-ready"],
+        items: [
+          { type: "image", src: work6, title: "Mandala Story Frame" },
+          { type: "image", src: work1, title: "Junior Jury Story Set" },
+        ],
+      },
+      {
+        name: "Reels Covers",
+        count: "60+ frames",
+        highlights: ["Designed for thumb-stop", "Consistent grid identity", "Series-friendly"],
+        items: [
+          { type: "image", src: work5, title: "Echo Reel Cover" },
+          { type: "image", src: work2, title: "DCA Reel Cover" },
+        ],
+      },
+      {
+        name: "Brand Posts",
+        count: "Ongoing",
+        highlights: ["Monthly retainers", "Cross-platform export", "Copy + design combined"],
+        items: [
+          { type: "image", src: work3, title: "Cardamom Post Series" },
+          { type: "image", src: work6, title: "Mandala Brand Post" },
+        ],
+      },
     ],
   },
   {
@@ -262,10 +335,41 @@ const workCategories = [
     role: "Director · Editor",
     tools: "After Effects · Blender · DaVinci",
     subs: [
-      { name: "Short Films", count: "07 pieces" },
-      { name: "Showreels", count: "Yearly cut" },
-      { name: "Cinematic Cuts", count: "12 films" },
-      { name: "Promo Reels", count: "23 brands" },
+      {
+        name: "Short Films",
+        count: "07 pieces",
+        highlights: ["Festival-ready cuts", "Original sound design", "DCP delivery"],
+        items: [
+          { type: "youtube", src: "https://www.youtube.com/embed/aqz-KE-bpKQ", title: "Short Film · Echo" },
+          { type: "image", src: work5, title: "Echo · Still Frame" },
+        ],
+      },
+      {
+        name: "Showreels",
+        count: "Yearly cut",
+        highlights: ["2024 reel — 01:30", "Director-led edit", "Sound by Bibek Tamang"],
+        items: [
+          { type: "youtube", src: "https://www.youtube.com/embed/ScMzIvxBSi4", title: "Studio Reel 2024" },
+        ],
+      },
+      {
+        name: "Cinematic Cuts",
+        count: "12 films",
+        highlights: ["Hand-graded LUTs", "16:9 + 2.39:1", "Brand storytelling"],
+        items: [
+          { type: "image", src: work2, title: "DCA Cinematic Frame" },
+          { type: "image", src: work4, title: "Hands That Grow Frame" },
+        ],
+      },
+      {
+        name: "Promo Reels",
+        count: "23 brands",
+        highlights: ["Built for paid social", "Vertical-first", "15s / 30s versions"],
+        items: [
+          { type: "image", src: work3, title: "Cardamom Promo" },
+          { type: "image", src: work6, title: "Mandala Promo" },
+        ],
+      },
     ],
   },
   {
@@ -280,10 +384,42 @@ const workCategories = [
     role: "Director · Lead Animator",
     tools: "After Effects · Illustrator · Toon Boom",
     subs: [
-      { name: "Character Animation", count: "30 rigs" },
-      { name: "Explainer Films", count: "14 films" },
-      { name: "YouTube Series", count: "2 seasons" },
-      { name: "Storyboards", count: "200+ frames" },
+      {
+        name: "Character Animation",
+        count: "30 rigs",
+        highlights: ["Duik / Rubberhose rigs", "Expressive lip-sync", "Reusable libraries"],
+        items: [
+          { type: "image", src: work1, title: "Junior Jury · Hero Rig" },
+          { type: "image", src: work4, title: "Farmer Rig" },
+        ],
+      },
+      {
+        name: "Explainer Films",
+        count: "14 films",
+        highlights: ["Script → storyboard → final", "60–90 second sweet spot", "Multi-language exports"],
+        items: [
+          { type: "image", src: work2, title: "DCA Explainer" },
+          { type: "image", src: work3, title: "Cardamom Explainer" },
+        ],
+      },
+      {
+        name: "YouTube Series",
+        count: "2 seasons",
+        highlights: ["18 episodes total", "1M+ minutes watched", "Sponsored by UNICEF Nepal"],
+        items: [
+          { type: "youtube", src: "https://www.youtube.com/embed/aqz-KE-bpKQ", title: "Junior Jury · Trailer" },
+          { type: "image", src: work1, title: "Junior Jury · Key Art" },
+        ],
+      },
+      {
+        name: "Storyboards",
+        count: "200+ frames",
+        highlights: ["Pencil-first workflow", "Mood-led panels", "Director-ready packs"],
+        items: [
+          { type: "image", src: work5, title: "Echo · Board 04" },
+          { type: "image", src: work6, title: "Mandala · Title Board" },
+        ],
+      },
     ],
   },
   {
@@ -298,10 +434,41 @@ const workCategories = [
     role: "Creative Lead",
     tools: "After Effects · Premiere",
     subs: [
-      { name: "Logo Animation", count: "48 marks" },
-      { name: "Title Sequences", count: "11 films" },
-      { name: "Broadcast Idents", count: "6 stations" },
-      { name: "Kinetic Typography", count: "Ongoing" },
+      {
+        name: "Logo Animation",
+        count: "48 marks",
+        highlights: ["Mnemonic-driven", "Loopable exports", "Lottie-ready"],
+        items: [
+          { type: "image", src: work6, title: "Mandala Logo Reveal" },
+          { type: "image", src: work2, title: "DCA Logo Sting" },
+        ],
+      },
+      {
+        name: "Title Sequences",
+        count: "11 films",
+        highlights: ["Film-style typography", "Custom transitions", "Sound-aware timing"],
+        items: [
+          { type: "image", src: work5, title: "Echo · Opening Title" },
+          { type: "image", src: work1, title: "Junior Jury · Intro" },
+        ],
+      },
+      {
+        name: "Broadcast Idents",
+        count: "6 stations",
+        highlights: ["10s + 5s + bumper", "Brand-locked motion", "HD + 4K masters"],
+        items: [
+          { type: "image", src: work2, title: "Channel Ident" },
+          { type: "image", src: work3, title: "Promo Ident" },
+        ],
+      },
+      {
+        name: "Kinetic Typography",
+        count: "Ongoing",
+        highlights: ["Type as performance", "Rhythm-cut to audio", "Devanagari + Latin"],
+        items: [
+          { type: "image", src: work4, title: "Kinetic · Hands That Grow" },
+        ],
+      },
     ],
   },
   {
@@ -316,17 +483,103 @@ const workCategories = [
     role: "Art Director",
     tools: "Illustrator · Photoshop · After Effects",
     subs: [
-      { name: "Logo Systems", count: "26 brands" },
-      { name: "Brand Guidelines", count: "14 books" },
-      { name: "Editorial Design", count: "9 issues" },
-      { name: "Packaging", count: "18 SKUs" },
+      {
+        name: "Logo Systems",
+        count: "26 brands",
+        highlights: ["Wordmark + monogram + symbol", "Responsive scaling", "Motion-ready"],
+        items: [
+          { type: "image", src: work6, title: "Mandala Wordmark" },
+          { type: "image", src: work3, title: "Cardamom Logo" },
+        ],
+      },
+      {
+        name: "Brand Guidelines",
+        count: "14 books",
+        highlights: ["50–80 page systems", "Voice + visual", "Print + digital ready"],
+        items: [
+          { type: "image", src: work6, title: "Mandala Guidelines Cover" },
+        ],
+      },
+      {
+        name: "Editorial Design",
+        count: "9 issues",
+        highlights: ["Magazine layouts", "Custom grids", "Devanagari typesetting"],
+        items: [
+          { type: "image", src: work3, title: "Cardamom Editorial" },
+          { type: "image", src: work4, title: "Hands That Grow Spread" },
+        ],
+      },
+      {
+        name: "Packaging",
+        count: "18 SKUs",
+        highlights: ["Sustainable substrates", "Print-tested dielines", "Ritual-grade finishes"],
+        items: [
+          { type: "image", src: work6, title: "Mandala Packaging" },
+          { type: "image", src: work3, title: "Cardamom Pouch" },
+        ],
+      },
     ],
   },
 ];
 
+function Lightbox({ item, onClose }: { item: WorkItem; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/95 backdrop-blur-xl p-4 md:p-12 animate-rise"
+    >
+      <button
+        onClick={onClose}
+        className="absolute right-6 top-6 z-10 border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition"
+      >
+        Close ✕
+      </button>
+      <div onClick={(e) => e.stopPropagation()} className="relative max-h-full max-w-6xl w-full">
+        {item.type === "image" && (
+          <img src={item.src} alt={item.title} className="max-h-[85vh] w-full object-contain" />
+        )}
+        {item.type === "video" && (
+          <video src={item.src} poster={item.poster} controls autoPlay className="max-h-[85vh] w-full" />
+        )}
+        {item.type === "youtube" && (
+          <div className="relative aspect-video w-full">
+            <iframe
+              src={item.src + "?autoplay=1"}
+              title={item.title}
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 h-full w-full"
+            />
+          </div>
+        )}
+        <div className="mt-4 text-center text-[11px] uppercase tracking-[0.3em] text-gold">{item.title}</div>
+      </div>
+    </div>
+  );
+}
+
 function Work() {
   const [active, setActive] = useState(workCategories[0].id);
   const current = workCategories.find((c) => c.id === active)!;
+  const [activeSubIdx, setActiveSubIdx] = useState(0);
+  const activeSub = current.subs[activeSubIdx];
+  const [lightbox, setLightbox] = useState<WorkItem | null>(null);
+
+  const selectCategory = (id: string) => {
+    setActive(id);
+    setActiveSubIdx(0);
+  };
+
   return (
     <section id="work" className="relative py-32">
       <div className="mx-auto max-w-7xl px-6">
@@ -347,7 +600,7 @@ function Work() {
             return (
               <button
                 key={c.id}
-                onClick={() => setActive(c.id)}
+                onClick={() => selectCategory(c.id)}
                 className={`group relative flex flex-col items-start gap-2 border-r border-border px-5 py-6 text-left transition ${isActive ? "bg-gold text-primary-foreground" : "hover:bg-card"}`}
               >
                 <span className={`font-display text-xs ${isActive ? "text-primary-foreground/80" : "text-gold"}`}>{c.num}</span>
@@ -361,9 +614,8 @@ function Work() {
           })}
         </div>
 
-        {/* Active panel */}
+        {/* Active category panel */}
         <div key={current.id} className="mt-10 grid gap-8 md:grid-cols-12 animate-rise">
-          {/* Cover — winning piece */}
           <div className="md:col-span-7 group relative overflow-hidden bg-card">
             <div className="relative aspect-[4/3] overflow-hidden">
               <img
@@ -390,7 +642,6 @@ function Work() {
             </div>
           </div>
 
-          {/* Side panel — winning award + sub-categories */}
           <div className="md:col-span-5 flex flex-col gap-6">
             <div className="border border-gold/40 bg-gold/5 p-6">
               <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">★ Title Holder</div>
@@ -400,25 +651,93 @@ function Work() {
             </div>
 
             <div className="border border-border bg-card/40 p-6 backdrop-blur flex-1">
-              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-5">Sub-categories</div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-5">Sub-categories — tap to open</div>
               <ul className="divide-y divide-border">
-                {current.subs.map((s, i) => (
-                  <li key={s.name} className="group flex items-baseline justify-between py-4 transition hover:pl-2">
-                    <div className="flex items-baseline gap-4">
-                      <span className="font-display text-xs text-gold w-6">{String(i + 1).padStart(2, "0")}</span>
-                      <span className="font-display text-xl md:text-2xl">{s.name}</span>
-                    </div>
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{s.count}</span>
-                  </li>
-                ))}
+                {current.subs.map((s, i) => {
+                  const isOn = i === activeSubIdx;
+                  return (
+                    <li key={s.name}>
+                      <button
+                        onClick={() => setActiveSubIdx(i)}
+                        className={`group flex w-full items-baseline justify-between py-4 text-left transition ${isOn ? "pl-3" : "hover:pl-2"}`}
+                      >
+                        <div className="flex items-baseline gap-4">
+                          <span className={`font-display text-xs w-6 ${isOn ? "text-foreground" : "text-gold"}`}>{String(i + 1).padStart(2, "0")}</span>
+                          <span className={`font-display text-xl md:text-2xl ${isOn ? "text-gold" : ""}`}>{s.name}</span>
+                        </div>
+                        <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{isOn ? "● Open" : s.count}</span>
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
-              <a href="#contact" className="mt-6 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-gold gold-underline">
-                Request full case study →
-              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Mini gallery + highlights for selected sub-category */}
+        <div key={current.id + activeSubIdx} className="mt-10 border-t border-border pt-10 animate-rise">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">
+                {current.label} / Stream {String(activeSubIdx + 1).padStart(2, "0")}
+              </div>
+              <h4 className="font-display text-4xl md:text-5xl">{activeSub.name}</h4>
+            </div>
+            <ul className="flex flex-wrap gap-2 md:max-w-xl md:justify-end">
+              {activeSub.highlights.map((h) => (
+                <li key={h} className="border border-border bg-card/40 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  ✦ {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {activeSub.items.map((it, idx) => {
+              const thumb = it.type === "image" ? it.src : it.type === "video" ? it.poster : undefined;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setLightbox(it)}
+                  className="group relative block aspect-[4/3] overflow-hidden bg-card text-left"
+                >
+                  {thumb ? (
+                    <img
+                      src={thumb}
+                      alt={it.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-ink to-card">
+                      <span className="font-display text-5xl text-gold/40">▶</span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
+                  <div className="absolute left-3 top-3 border border-gold/60 bg-ink/60 px-2 py-0.5 text-[9px] uppercase tracking-[0.3em] text-gold">
+                    {it.type === "image" ? "Image" : it.type === "video" ? "Video" : "YouTube"}
+                  </div>
+                  <div className="absolute inset-x-3 bottom-3 flex items-center justify-between">
+                    <span className="font-display text-sm md:text-base truncate pr-2">{it.title}</span>
+                    <span className="text-gold opacity-0 transition group-hover:opacity-100">↗</span>
+                  </div>
+                </button>
+              );
+            })}
+
+            <div className="flex aspect-[4/3] flex-col items-center justify-center border border-dashed border-border bg-card/20 p-4 text-center">
+              <div className="font-display text-3xl text-gold/60">+</div>
+              <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Add your work</p>
+              <p className="mt-1 text-[10px] text-muted-foreground/70 leading-relaxed">
+                Edit <span className="text-gold">workCategories</span> in <code>src/routes/index.tsx</code>
+              </p>
             </div>
           </div>
         </div>
       </div>
+
+      {lightbox && <Lightbox item={lightbox} onClose={() => setLightbox(null)} />}
     </section>
   );
 }
