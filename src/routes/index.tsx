@@ -144,7 +144,7 @@ function About() {
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-7">
             <h2 className="font-display text-6xl leading-[0.95] md:text-8xl">
-              A storyteller who <span className="text-gold italic font-serif-display">draws</span> with light, rhythm and meaning.
+              A storyteller who <span className="text-gold italic font-serif-display font-sans font-normal not-italic">draws</span> with light, rhythm and meaning.
             </h2>
             <div className="mt-10 space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
