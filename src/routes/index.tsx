@@ -231,16 +231,102 @@ function Experience() {
   );
 }
 
-const works = [
-  { img: work1, title: "Junior Jury", tag: "2D Animation · YouTube Series", role: "Director, Animator", tools: "After Effects · Illustrator", span: "md:col-span-7" },
-  { img: work2, title: "DCA Awareness", tag: "NGO Motion Graphics", role: "Creative Lead", tools: "After Effects · Premiere", span: "md:col-span-5" },
-  { img: work3, title: "Cardamom Story", tag: "Promotional Motion Design", role: "Designer · Animator", tools: "After Effects · Photoshop", span: "md:col-span-5" },
-  { img: work4, title: "Hands That Grow", tag: "Awareness Campaign", role: "Illustrator · Animator", tools: "Procreate · After Effects", span: "md:col-span-7" },
-  { img: work5, title: "Echo / Motion Study", tag: "Personal Reel Piece", role: "Director", tools: "After Effects · Blender", span: "md:col-span-6" },
-  { img: work6, title: "Mandala Identity", tag: "Brand System", role: "Art Director", tools: "Illustrator · Photoshop", span: "md:col-span-6" },
+const workCategories = [
+  {
+    id: "social",
+    num: "01",
+    label: "Social Media",
+    cover: work4,
+    title: "Hands That Grow",
+    winningTitle: "Campaign of the Year — Nepal Social Impact Awards 2024",
+    tag: "Awareness Campaign · Instagram",
+    desc: "A 12-piece carousel series turning farming livelihoods into a slow, frame-by-frame visual poem.",
+    role: "Illustrator · Animator",
+    tools: "Procreate · After Effects",
+    subs: [
+      { name: "Instagram Carousels", count: "42 sets" },
+      { name: "Story Templates", count: "18 systems" },
+      { name: "Reels Covers", count: "60+ frames" },
+      { name: "Brand Posts", count: "Ongoing" },
+    ],
+  },
+  {
+    id: "reel",
+    num: "02",
+    label: "Reel",
+    cover: work5,
+    title: "Echo — A Motion Study",
+    winningTitle: "Selected · Kathmandu International Mountain Film Festival",
+    tag: "Personal Reel Piece · 01:48",
+    desc: "A meditative short reel exploring stillness, breath and the geometry of light across the Himalayan dusk.",
+    role: "Director · Editor",
+    tools: "After Effects · Blender · DaVinci",
+    subs: [
+      { name: "Short Films", count: "07 pieces" },
+      { name: "Showreels", count: "Yearly cut" },
+      { name: "Cinematic Cuts", count: "12 films" },
+      { name: "Promo Reels", count: "23 brands" },
+    ],
+  },
+  {
+    id: "2d",
+    num: "03",
+    label: "2D Animation",
+    cover: work1,
+    title: "Junior Jury",
+    winningTitle: "Best Animated Series for Children — YouTube Nepal 2023",
+    tag: "2D Animation · YouTube Series · S01–S02",
+    desc: "A character-led courtroom series for kids — written, storyboarded and animated frame by frame.",
+    role: "Director · Lead Animator",
+    tools: "After Effects · Illustrator · Toon Boom",
+    subs: [
+      { name: "Character Animation", count: "30 rigs" },
+      { name: "Explainer Films", count: "14 films" },
+      { name: "YouTube Series", count: "2 seasons" },
+      { name: "Storyboards", count: "200+ frames" },
+    ],
+  },
+  {
+    id: "motion",
+    num: "04",
+    label: "Motion Graphics",
+    cover: work2,
+    title: "DCA Awareness",
+    winningTitle: "Featured Campaign — UNICEF Nepal Outreach 2024",
+    tag: "NGO Motion Graphics · National Broadcast",
+    desc: "Kinetic typography and infographic motion built to translate dense policy into one minute of clarity.",
+    role: "Creative Lead",
+    tools: "After Effects · Premiere",
+    subs: [
+      { name: "Logo Animation", count: "48 marks" },
+      { name: "Title Sequences", count: "11 films" },
+      { name: "Broadcast Idents", count: "6 stations" },
+      { name: "Kinetic Typography", count: "Ongoing" },
+    ],
+  },
+  {
+    id: "brand",
+    num: "05",
+    label: "Branding",
+    cover: work6,
+    title: "Mandala Identity",
+    winningTitle: "Brand New / Under Consideration — Identity of the Quarter",
+    tag: "Brand System · Cultural Identity",
+    desc: "A complete identity grammar drawn from temple geometry — wordmark, motion, print and ritual packaging.",
+    role: "Art Director",
+    tools: "Illustrator · Photoshop · After Effects",
+    subs: [
+      { name: "Logo Systems", count: "26 brands" },
+      { name: "Brand Guidelines", count: "14 books" },
+      { name: "Editorial Design", count: "9 issues" },
+      { name: "Packaging", count: "18 SKUs" },
+    ],
+  },
 ];
 
 function Work() {
+  const [active, setActive] = useState(workCategories[0].id);
+  const current = workCategories.find((c) => c.id === active)!;
   return (
     <section id="work" className="relative py-32">
       <div className="mx-auto max-w-7xl px-6">
@@ -250,40 +336,87 @@ function Work() {
             Stories shaped in <span className="italic font-serif-display text-gold font-sans font-normal not-italic">motion</span>.
           </h2>
           <p className="max-w-sm text-muted-foreground">
-            A selection of recent work across animation, branding and campaign films. Each frame, deliberate.
+            Five disciplines, one obsession — narrative. Each panel below opens a chapter of the studio.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-12">
-          {works.map((w, i) => (
-            <a
-              key={i}
-              href="#contact"
-              className={`group relative block overflow-hidden bg-card ${w.span}`}
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={w.img}
-                  alt={w.title}
-                  width={1024}
-                  height={768}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent opacity-80" />
+
+        {/* Category tab strip */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 border-y border-border">
+          {workCategories.map((c) => {
+            const isActive = c.id === active;
+            return (
+              <button
+                key={c.id}
+                onClick={() => setActive(c.id)}
+                className={`group relative flex flex-col items-start gap-2 border-r border-border px-5 py-6 text-left transition ${isActive ? "bg-gold text-primary-foreground" : "hover:bg-card"}`}
+              >
+                <span className={`font-display text-xs ${isActive ? "text-primary-foreground/80" : "text-gold"}`}>{c.num}</span>
+                <span className="font-display text-xl md:text-2xl leading-tight">{c.label}</span>
+                <span className={`text-[10px] uppercase tracking-[0.25em] ${isActive ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                  {c.subs.length} streams
+                </span>
+                {isActive && <span className="absolute right-4 top-4 text-primary-foreground">●</span>}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Active panel */}
+        <div key={current.id} className="mt-10 grid gap-8 md:grid-cols-12 animate-rise">
+          {/* Cover — winning piece */}
+          <div className="md:col-span-7 group relative overflow-hidden bg-card">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <img
+                src={current.cover}
+                alt={current.title}
+                width={1024}
+                height={768}
+                className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+              <div className="absolute left-6 top-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-gold">
+                <span className="h-px w-8 bg-gold" />
+                <span>Title Cover · {current.label}</span>
               </div>
-              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-                <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-gold mb-3">
-                  <span>{w.tag}</span>
-                  <span className="opacity-0 transition group-hover:opacity-100">View →</span>
-                </div>
-                <h3 className="font-display text-3xl md:text-5xl">{w.title}</h3>
-                <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted-foreground">
-                  <span>{w.role}</span>
-                  <span>{w.tools}</span>
-                </div>
+            </div>
+            <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
+              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">{current.tag}</div>
+              <h3 className="font-display text-4xl md:text-6xl leading-[0.95]">{current.title}</h3>
+              <p className="mt-4 max-w-xl text-muted-foreground">{current.desc}</p>
+              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted-foreground">
+                <span>{current.role}</span>
+                <span>{current.tools}</span>
               </div>
-            </a>
-          ))}
+            </div>
+          </div>
+
+          {/* Side panel — winning award + sub-categories */}
+          <div className="md:col-span-5 flex flex-col gap-6">
+            <div className="border border-gold/40 bg-gold/5 p-6">
+              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">★ Title Holder</div>
+              <p className="font-serif-display italic text-xl md:text-2xl leading-snug">
+                "{current.winningTitle}"
+              </p>
+            </div>
+
+            <div className="border border-border bg-card/40 p-6 backdrop-blur flex-1">
+              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-5">Sub-categories</div>
+              <ul className="divide-y divide-border">
+                {current.subs.map((s, i) => (
+                  <li key={s.name} className="group flex items-baseline justify-between py-4 transition hover:pl-2">
+                    <div className="flex items-baseline gap-4">
+                      <span className="font-display text-xs text-gold w-6">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="font-display text-xl md:text-2xl">{s.name}</span>
+                    </div>
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{s.count}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="#contact" className="mt-6 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-gold gold-underline">
+                Request full case study →
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
