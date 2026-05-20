@@ -166,10 +166,14 @@ function About() {
           <div className="md:col-span-5">
             <div className="border border-border bg-card/40 p-8 backdrop-blur">
               <p className="mb-6 text-[11px] uppercase tracking-[0.3em] text-gold">Education</p>
-              <ul className="space-y-6">
+            <ul className="space-y-6">
                 <li>
-                  <div className="font-display text-2xl">+2 Science</div>
-                  <div className="text-sm text-muted-foreground">Nepal</div>
+                  <div className="font-display text-2xl">S.L.C.</div>
+                  <div className="text-sm text-muted-foreground">Mount Everest Higher Secondary School, Suryabinayak Bhaktapur, Nepal · 2013 AD</div>
+                </li>
+                <li>
+                  <div className="font-display text-2xl">Higher Education (Science)</div>
+                  <div className="text-sm text-muted-foreground">Khwopa Higher Secondary School – Dekocha, Bhaktapur · 2014 – 2015 AD</div>
                 </li>
                 <li>
                   <div className="font-display text-2xl">Advanced Diploma in Animation</div>
@@ -198,7 +202,7 @@ const experiences = [
   { year: "2025 — Now", role: "Motion Graphics Mentor", company: "Broadway Infosys", desc: "Mentoring the next generation of motion designers through structured curriculum, critique sessions and industry-grade project work." },
   { year: "2021 — Now", role: "Creative Head & 2D Animator", company: "Innovate Tech", desc: "Leading creative direction across animated campaigns and storytelling pieces. Building and guiding a multidisciplinary design and animation team." },
   { year: "2018 — Now", role: "Freelance Motion & Graphic Designer", company: "Independent", desc: "Partnering with brands, NGOs and creators to craft emotionally resonant visuals — from logo systems to long-form animated stories." },
-  { year: "2019 — 2020", role: "Supervisor of Animators", company: "Smaterr Pvt. Ltd.", desc: "Oversaw production pipelines, quality control and creative supervision for a team of 2D animators on commercial projects." },
+  { year: "2019 — 2020", role: "Lead Animator", company: "Smaterr Pvt. Ltd.", desc: "Oversaw production pipelines, quality control and creative supervision for a team of 2D animators on commercial projects." },
   { year: "2018 — 2019", role: "Senior Graphic Designer", company: "Infinia Hub", desc: "Delivered brand systems, marketing collateral and editorial design with a focus on narrative-led visual identities." },
 ];
 
@@ -744,18 +748,19 @@ function Work() {
 
 const skillGroups = [
   { title: "Motion & Animation", items: ["Motion Graphics", "2D Character Animation", "Explainer Films", "Visual Storytelling"] },
-  { title: "Design & Illustration", items: ["Graphic Design", "Stylized Illustration", "Branding Systems", "Editorial Design"] },
+  { title: "Design & Illustration", items: ["Graphic Design", "Stylized Illustration", "Branding Systems", "Editorial Design", "Photography"] },
   { title: "Direction & Leadership", items: ["Creative Direction", "Team Leadership", "Mentorship", "Project Management"] },
   { title: "Post-Production", items: ["Video Editing", "Color Grading", "Sound Sync", "Final Delivery"] },
 ];
 const software = [
-  { name: "After Effects", level: 96 },
-  { name: "Illustrator", level: 92 },
-  { name: "Photoshop", level: 90 },
-  { name: "Premiere Pro", level: 88 },
-  { name: "Blender", level: 70 },
-  { name: "Rive", level: 75 },
-  { name: "Maya", level: 60 },
+  "After Effects",
+  "Illustrator",
+  "Photoshop",
+  "DaVinci Resolve",
+  "Premiere Pro",
+  "InDesign",
+  "Blender",
+  "CapCut",
 ];
 
 function Skills() {
@@ -784,19 +789,10 @@ function Skills() {
 
           <div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-8">Software Fluency</div>
-            <ul className="space-y-6">
+            <ul className="space-y-4">
               {software.map((s) => (
-                <li key={s.name}>
-                  <div className="mb-2 flex items-baseline justify-between">
-                    <span className="font-display text-2xl">{s.name}</span>
-                    <span className="text-xs text-muted-foreground">{s.level}%</span>
-                  </div>
-                  <div className="h-px w-full bg-border relative overflow-hidden">
-                    <div
-                      className="absolute inset-y-0 left-0 bg-gold"
-                      style={{ width: `${s.level}%`, height: "2px", top: "-0.5px" }}
-                    />
-                  </div>
+                <li key={s} className="border-b border-border pb-4">
+                  <span className="font-display text-2xl">{s}</span>
                 </li>
               ))}
             </ul>
