@@ -52,8 +52,12 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-end overflow-hidden bg-ink">
+      {/* subtle background texture */}
+      <div className="pointer-events-none absolute inset-1 opacity-[0.08]">
+        <img src={bgTexture} alt="" className="h-full w-full object-cover" />
+      </div>
       {/* animated background blobs */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-1">
         <div className="absolute -left-32 top-1/4 h-[500px] w-[500px] rounded-full bg-gold/10 blur-[120px] animate-float" />
         <div className="absolute -right-32 bottom-0 h-[600px] w-[600px] rounded-full bg-accent/20 blur-[140px] animate-float [animation-delay:-3s]" />
         <div className="absolute inset-0 bg-grain opacity-40" />
