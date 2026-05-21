@@ -196,6 +196,23 @@ function About() {
                 </div>
               </div>
             </div>
+
+            <div className="mt-6 border border-border bg-card/40 p-8 backdrop-blur">
+              <p className="mb-6 text-[11px] uppercase tracking-[0.3em] text-gold">Languages</p>
+              <ul className="space-y-4">
+                {[
+                  { name: "Nepali", level: "Fluent" },
+                  { name: "Newari", level: "Fluent" },
+                  { name: "English", level: "Conversational" },
+                  { name: "Hindi", level: "Conversational" },
+                ].map((l) => (
+                  <li key={l.name} className="flex items-baseline justify-between gap-4 border-b border-border/60 pb-3 last:border-0 last:pb-0">
+                    <span className="font-display text-xl">{l.name}</span>
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{l.level}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
