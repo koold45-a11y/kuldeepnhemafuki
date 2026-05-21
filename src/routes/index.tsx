@@ -53,7 +53,7 @@ function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-end overflow-hidden bg-ink">
       {/* subtle background texture */}
-      <div className="pointer-events-none absolute inset-1 opacity-[0.08]">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
         <img src={bgTexture} alt="" className="h-full w-full object-cover" />
       </div>
       {/* animated background blobs */}
