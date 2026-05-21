@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroPortrait from "@/assets/hero-portrait.jpg";
+import bgTexture from "@/assets/bg-texture.jpg";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
