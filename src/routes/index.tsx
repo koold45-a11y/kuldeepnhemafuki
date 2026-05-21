@@ -209,6 +209,7 @@ const experiences = [
   { year: "2018 — Now", role: "Freelance Motion & Graphic Designer", company: "Independent", desc: "Partnering with brands, NGOs and creators to craft emotionally resonant visuals — from logo systems to long-form animated stories." },
   { year: "2019 — 2020", role: "Lead Animator", company: "Smaterr Pvt. Ltd.", desc: "Oversaw production pipelines, quality control and creative supervision for a team of 2D animators on commercial projects." },
   { year: "2018 — 2019", role: "Senior Graphic Designer", company: "Infinia Hub", desc: "Delivered brand systems, marketing collateral and editorial design with a focus on narrative-led visual identities." },
+  { year: "Dec 2017 — Jun 2018", role: "Junior Graphic Designer", company: "BigData Solution · Ghatekulo Chowk, Kathmandu", desc: "Assisted the design team with graphic elements for client projects. Developed branding materials and designs for company promotions. Gained hands-on experience in Adobe Creative Suite, refining both technical and creative skills." },
 ];
 
 function Experience() {
