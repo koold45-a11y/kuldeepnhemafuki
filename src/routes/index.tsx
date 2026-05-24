@@ -92,7 +92,7 @@ function Hero() {
         <h1 className="font-display text-[18vw] leading-[0.82] tracking-tight md:text-[12rem] animate-rise [animation-delay:120ms]">
           KULDEEP
           <br />
-          <span className="text-gold italic font-serif-display text-[14vw] md:text-[9rem] font-sans font-normal">Nhemafuki</span>
+          <span className="font-serif-display italic text-gold text-[14vw] md:text-[9rem]">Nhemafuki</span>
         </h1>
         <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-end">
           <p className="max-w-md font-serif-display text-2xl italic text-foreground/90 animate-rise [animation-delay:240ms]">
@@ -752,14 +752,6 @@ function Work() {
                 </button>
               );
             })}
-
-            <div className="flex aspect-[4/3] flex-col items-center justify-center border border-dashed border-border bg-card/20 p-4 text-center">
-              <div className="font-display text-3xl text-gold/60">+</div>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Add your work</p>
-              <p className="mt-1 text-[10px] text-muted-foreground/70 leading-relaxed">
-                Edit <span className="text-gold">workCategories</span> in <code>src/routes/index.tsx</code>
-              </p>
-            </div>
           </div>
         </div>
       </div>
