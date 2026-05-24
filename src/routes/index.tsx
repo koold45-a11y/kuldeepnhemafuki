@@ -752,14 +752,6 @@ function Work() {
                 </button>
               );
             })}
-
-            <div className="flex aspect-[4/3] flex-col items-center justify-center border border-dashed border-border bg-card/20 p-4 text-center">
-              <div className="font-display text-3xl text-gold/60">+</div>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Add your work</p>
-              <p className="mt-1 text-[10px] text-muted-foreground/70 leading-relaxed">
-                Edit <span className="text-gold">workCategories</span> in <code>src/routes/index.tsx</code>
-              </p>
-            </div>
           </div>
         </div>
       </div>
