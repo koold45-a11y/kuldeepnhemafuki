@@ -685,7 +685,7 @@ function Work() {
         {/* Active category panel */}
         <div key={current.id} className="mt-10 grid gap-8 md:grid-cols-12 animate-rise">
           <div className="md:col-span-7 group relative overflow-hidden bg-card">
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
               <img
                 src={current.cover}
                 alt={current.title}
