@@ -699,11 +699,11 @@ function Work() {
                 <span>Title Cover · {current.label}</span>
               </div>
             </div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
-              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">{current.tag}</div>
-              <h3 className="font-display text-4xl md:text-6xl leading-[0.95]">{current.title}</h3>
-              <p className="mt-4 max-w-xl text-muted-foreground">{current.desc}</p>
-              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted-foreground">
+            <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-10">
+              <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-gold mb-2 sm:mb-3">{current.tag}</div>
+              <h3 className="font-display text-2xl sm:text-4xl md:text-6xl leading-[0.95]">{current.title}</h3>
+              <p className="mt-2 sm:mt-4 max-w-xl text-sm sm:text-base text-muted-foreground line-clamp-2 sm:line-clamp-none">{current.desc}</p>
+              <div className="mt-3 sm:mt-5 hidden sm:flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted-foreground">
                 <span>{current.role}</span>
                 <span>{current.tools}</span>
               </div>
