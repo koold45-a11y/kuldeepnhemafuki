@@ -184,8 +184,8 @@ function SectionLabel({ num, title }: { num: string; title: string }) {
 
 function About() {
   return (
-    <section id="about" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="about" className="relative py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="01" title="About" />
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-7">
@@ -272,8 +272,8 @@ const experiences = [
 
 function Experience() {
   return (
-    <section id="experience" className="relative bg-ink py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="experience" className="relative bg-ink py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="02" title="Experience" />
         <h2 className="font-display text-5xl md:text-7xl mb-20">The reel of <span className="italic font-serif-display text-gold font-sans font-normal not-italic">years</span>.</h2>
         <div className="relative">
@@ -649,8 +649,8 @@ function Work() {
   };
 
   return (
-    <section id="work" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="work" className="relative py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="03" title="Selected Work" />
         <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <h2 className="font-display text-5xl md:text-7xl max-w-2xl leading-[0.95]">
@@ -821,8 +821,8 @@ const software = [
 
 function Skills() {
   return (
-    <section id="skills" className="relative bg-ink py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="skills" className="relative bg-ink py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="04" title="Capabilities" />
         <div className="grid gap-16 md:grid-cols-2">
           <div>
@@ -872,8 +872,8 @@ const services = [
 
 function Services() {
   return (
-    <section id="services" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="services" className="relative py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="05" title="Services" />
         <h2 className="font-display text-5xl md:text-7xl mb-16 max-w-3xl leading-[0.95]">
           What I bring to the <span className="italic font-serif-display text-gold font-sans font-normal not-italic">edit room</span>.
@@ -895,11 +895,11 @@ function Services() {
 
 function Contact() {
   return (
-    <section id="contact" className="relative bg-ink py-32">
+    <section id="contact" className="relative bg-ink py-20 sm:py-28 md:py-32">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-gold/10 blur-[150px]" />
       </div>
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="06" title="Contact" />
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-7">
