@@ -22,28 +22,69 @@ const nav = [
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "backdrop-blur-xl bg-background/70 border-b border-border" : ""}`}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-        <a href="#top" className="flex items-center gap-2">
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled || open ? "backdrop-blur-xl bg-background/80 border-b border-border" : ""}`}>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
+        <a href="#top" onClick={() => setOpen(false)} className="flex items-center gap-2">
           <span className="font-display text-2xl text-gold">KN</span>
           <span className="hidden text-[10px] uppercase tracking-[0.3em] text-muted-foreground sm:block">Studio · MMXXV</span>
         </a>
-        <nav className="hidden gap-8 md:flex">
+        <nav className="hidden gap-6 lg:gap-8 md:flex">
           {nav.map((n) => (
             <a key={n.id} href={`#${n.id}`} className="gold-underline text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground">
               {n.label}
             </a>
           ))}
         </nav>
-        <a href="#contact" className="border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition">
-          Let's Talk
-        </a>
+        <div className="flex items-center gap-3">
+          <a href="#contact" className="hidden sm:inline-block border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition">
+            Let's Talk
+          </a>
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            onClick={() => setOpen((o) => !o)}
+            className="md:hidden flex h-10 w-10 flex-col items-center justify-center gap-1.5 border border-border text-gold"
+          >
+            <span className={`block h-px w-5 bg-current transition-transform ${open ? "translate-y-[7px] rotate-45" : ""}`} />
+            <span className={`block h-px w-5 bg-current transition-opacity ${open ? "opacity-0" : ""}`} />
+            <span className={`block h-px w-5 bg-current transition-transform ${open ? "-translate-y-[7px] -rotate-45" : ""}`} />
+          </button>
+        </div>
+      </div>
+      {/* Mobile menu */}
+      <div className={`md:hidden overflow-hidden transition-[max-height] duration-500 ease-out ${open ? "max-h-[80vh]" : "max-h-0"}`}>
+        <nav className="flex flex-col gap-1 border-t border-border bg-background/95 backdrop-blur-xl px-4 py-6">
+          {nav.map((n) => (
+            <a
+              key={n.id}
+              href={`#${n.id}`}
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-between border-b border-border/60 py-4 font-display text-2xl"
+            >
+              <span>{n.label}</span>
+              <span className="text-gold text-sm">↗</span>
+            </a>
+          ))}
+          <a
+            href="#contact"
+            onClick={() => setOpen(false)}
+            className="mt-4 bg-gold px-4 py-3 text-center text-[11px] uppercase tracking-[0.3em] text-primary-foreground"
+          >
+            Let's Talk
+          </a>
+        </nav>
       </div>
     </header>
   );
