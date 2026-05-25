@@ -22,28 +22,69 @@ const nav = [
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "backdrop-blur-xl bg-background/70 border-b border-border" : ""}`}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-        <a href="#top" className="flex items-center gap-2">
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled || open ? "backdrop-blur-xl bg-background/80 border-b border-border" : ""}`}>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
+        <a href="#top" onClick={() => setOpen(false)} className="flex items-center gap-2">
           <span className="font-display text-2xl text-gold">KN</span>
           <span className="hidden text-[10px] uppercase tracking-[0.3em] text-muted-foreground sm:block">Studio · MMXXV</span>
         </a>
-        <nav className="hidden gap-8 md:flex">
+        <nav className="hidden gap-6 lg:gap-8 md:flex">
           {nav.map((n) => (
             <a key={n.id} href={`#${n.id}`} className="gold-underline text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground">
               {n.label}
             </a>
           ))}
         </nav>
-        <a href="#contact" className="border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition">
-          Let's Talk
-        </a>
+        <div className="flex items-center gap-3">
+          <a href="#contact" className="hidden sm:inline-block border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition">
+            Let's Talk
+          </a>
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            onClick={() => setOpen((o) => !o)}
+            className="md:hidden flex h-10 w-10 flex-col items-center justify-center gap-1.5 border border-border text-gold"
+          >
+            <span className={`block h-px w-5 bg-current transition-transform ${open ? "translate-y-[7px] rotate-45" : ""}`} />
+            <span className={`block h-px w-5 bg-current transition-opacity ${open ? "opacity-0" : ""}`} />
+            <span className={`block h-px w-5 bg-current transition-transform ${open ? "-translate-y-[7px] -rotate-45" : ""}`} />
+          </button>
+        </div>
+      </div>
+      {/* Mobile menu */}
+      <div className={`md:hidden overflow-hidden transition-[max-height] duration-500 ease-out ${open ? "max-h-[80vh]" : "max-h-0"}`}>
+        <nav className="flex flex-col gap-1 border-t border-border bg-background/95 backdrop-blur-xl px-4 py-6">
+          {nav.map((n) => (
+            <a
+              key={n.id}
+              href={`#${n.id}`}
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-between border-b border-border/60 py-4 font-display text-2xl"
+            >
+              <span>{n.label}</span>
+              <span className="text-gold text-sm">↗</span>
+            </a>
+          ))}
+          <a
+            href="#contact"
+            onClick={() => setOpen(false)}
+            className="mt-4 bg-gold px-4 py-3 text-center text-[11px] uppercase tracking-[0.3em] text-primary-foreground"
+          >
+            Let's Talk
+          </a>
+        </nav>
       </div>
     </header>
   );
@@ -70,7 +111,7 @@ function Hero() {
         alt="Kuldeep Nhemafuki illustrated portrait"
         width={1024}
         height={1024}
-        className="absolute right-0 top-0 h-full w-1/2 object-cover object-center opacity-90 mix-blend-luminosity md:opacity-100 md:mix-blend-normal"
+        className="absolute right-0 top-0 h-full w-full md:w-1/2 object-cover object-center opacity-30 mix-blend-luminosity md:opacity-100 md:mix-blend-normal"
         style={{ maskImage: "linear-gradient(to left, black 50%, transparent)" }}
       />
 
@@ -87,23 +128,23 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32">
-        <p className="mb-6 text-[11px] uppercase tracking-[0.4em] text-gold animate-rise">A Cinematic Portfolio</p>
-        <h1 className="font-display text-[18vw] leading-[0.82] tracking-tight md:text-[12rem] animate-rise [animation-delay:120ms]">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 pb-20 pt-28 sm:pt-32">
+        <p className="mb-4 sm:mb-6 text-[10px] sm:text-[11px] uppercase tracking-[0.4em] text-gold animate-rise">A Cinematic Portfolio</p>
+        <h1 className="font-display text-[clamp(3.5rem,14vw,12rem)] leading-[0.85] tracking-tight animate-rise [animation-delay:120ms]">
           KULDEEP
           <br />
-          <span className="font-serif-display italic text-gold text-[14vw] md:text-[9rem]">Nhemafuki</span>
+          <span className="font-serif-display italic text-gold text-[clamp(2.5rem,10vw,9rem)]">Nhemafuki</span>
         </h1>
-        <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-end">
-          <p className="max-w-md font-serif-display text-2xl italic text-foreground/90 animate-rise [animation-delay:240ms]">
+        <div className="mt-8 sm:mt-10 grid gap-8 md:grid-cols-2 md:items-end">
+          <p className="max-w-md font-serif-display text-xl sm:text-2xl italic text-foreground/90 animate-rise [animation-delay:240ms]">
             “Crafting emotion through motion &amp; design.”
           </p>
-          <div className="flex flex-wrap items-center gap-4 md:justify-end animate-rise [animation-delay:360ms]">
-            <a href="#work" className="group flex items-center gap-3 bg-gold px-6 py-4 text-[11px] uppercase tracking-[0.3em] text-primary-foreground transition hover:bg-foreground">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:justify-end animate-rise [animation-delay:360ms]">
+            <a href="#work" className="group flex items-center gap-3 bg-gold px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-primary-foreground transition hover:bg-foreground">
               View Portfolio
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </a>
-            <a href="#contact" className="flex items-center gap-3 border border-foreground/30 px-6 py-4 text-[11px] uppercase tracking-[0.3em] hover:border-gold hover:text-gold transition">
+            <a href="#contact" className="flex items-center gap-3 border border-foreground/30 px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] hover:border-gold hover:text-gold transition">
               Contact Me
             </a>
           </div>
@@ -143,12 +184,12 @@ function SectionLabel({ num, title }: { num: string; title: string }) {
 
 function About() {
   return (
-    <section id="about" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="about" className="relative py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="01" title="About" />
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-7">
-            <h2 className="font-display text-6xl leading-[0.95] md:text-8xl">
+            <h2 className="font-display text-5xl sm:text-6xl leading-[0.95] md:text-8xl">
               A storyteller who <span className="text-gold italic font-serif-display font-sans font-normal not-italic">draws</span> with light, rhythm and meaning.
             </h2>
             <div className="mt-10 space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -231,8 +272,8 @@ const experiences = [
 
 function Experience() {
   return (
-    <section id="experience" className="relative bg-ink py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="experience" className="relative bg-ink py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="02" title="Experience" />
         <h2 className="font-display text-5xl md:text-7xl mb-20">The reel of <span className="italic font-serif-display text-gold font-sans font-normal not-italic">years</span>.</h2>
         <div className="relative">
@@ -608,8 +649,8 @@ function Work() {
   };
 
   return (
-    <section id="work" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="work" className="relative py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="03" title="Selected Work" />
         <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <h2 className="font-display text-5xl md:text-7xl max-w-2xl leading-[0.95]">
@@ -644,7 +685,7 @@ function Work() {
         {/* Active category panel */}
         <div key={current.id} className="mt-10 grid gap-8 md:grid-cols-12 animate-rise">
           <div className="md:col-span-7 group relative overflow-hidden bg-card">
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
               <img
                 src={current.cover}
                 alt={current.title}
@@ -658,11 +699,11 @@ function Work() {
                 <span>Title Cover · {current.label}</span>
               </div>
             </div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
-              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3">{current.tag}</div>
-              <h3 className="font-display text-4xl md:text-6xl leading-[0.95]">{current.title}</h3>
-              <p className="mt-4 max-w-xl text-muted-foreground">{current.desc}</p>
-              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted-foreground">
+            <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-10">
+              <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-gold mb-2 sm:mb-3">{current.tag}</div>
+              <h3 className="font-display text-2xl sm:text-4xl md:text-6xl leading-[0.95]">{current.title}</h3>
+              <p className="mt-2 sm:mt-4 max-w-xl text-sm sm:text-base text-muted-foreground line-clamp-2 sm:line-clamp-none">{current.desc}</p>
+              <div className="mt-3 sm:mt-5 hidden sm:flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted-foreground">
                 <span>{current.role}</span>
                 <span>{current.tools}</span>
               </div>
@@ -780,8 +821,8 @@ const software = [
 
 function Skills() {
   return (
-    <section id="skills" className="relative bg-ink py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="skills" className="relative bg-ink py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="04" title="Capabilities" />
         <div className="grid gap-16 md:grid-cols-2">
           <div>
@@ -831,8 +872,8 @@ const services = [
 
 function Services() {
   return (
-    <section id="services" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="services" className="relative py-20 sm:py-28 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="05" title="Services" />
         <h2 className="font-display text-5xl md:text-7xl mb-16 max-w-3xl leading-[0.95]">
           What I bring to the <span className="italic font-serif-display text-gold font-sans font-normal not-italic">edit room</span>.
@@ -854,15 +895,15 @@ function Services() {
 
 function Contact() {
   return (
-    <section id="contact" className="relative bg-ink py-32">
+    <section id="contact" className="relative bg-ink py-20 sm:py-28 md:py-32">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-gold/10 blur-[150px]" />
       </div>
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <SectionLabel num="06" title="Contact" />
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-7">
-            <h2 className="font-display text-6xl md:text-9xl leading-[0.9]">
+            <h2 className="font-display text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-[0.9]">
               Let's create
               <br />
               <span className="italic font-serif-display text-gold font-sans font-normal not-italic">something cinematic</span>
