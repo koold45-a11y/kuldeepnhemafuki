@@ -111,7 +111,7 @@ function Hero() {
         alt="Kuldeep Nhemafuki illustrated portrait"
         width={1024}
         height={1024}
-        className="absolute right-0 top-0 h-full w-1/2 object-cover object-center opacity-90 mix-blend-luminosity md:opacity-100 md:mix-blend-normal"
+        className="absolute right-0 top-0 h-full w-full md:w-1/2 object-cover object-center opacity-30 mix-blend-luminosity md:opacity-100 md:mix-blend-normal"
         style={{ maskImage: "linear-gradient(to left, black 50%, transparent)" }}
       />
 
@@ -128,23 +128,23 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32">
-        <p className="mb-6 text-[11px] uppercase tracking-[0.4em] text-gold animate-rise">A Cinematic Portfolio</p>
-        <h1 className="font-display text-[18vw] leading-[0.82] tracking-tight md:text-[12rem] animate-rise [animation-delay:120ms]">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 pb-20 pt-28 sm:pt-32">
+        <p className="mb-4 sm:mb-6 text-[10px] sm:text-[11px] uppercase tracking-[0.4em] text-gold animate-rise">A Cinematic Portfolio</p>
+        <h1 className="font-display text-[clamp(3.5rem,14vw,12rem)] leading-[0.85] tracking-tight animate-rise [animation-delay:120ms]">
           KULDEEP
           <br />
-          <span className="font-serif-display italic text-gold text-[14vw] md:text-[9rem]">Nhemafuki</span>
+          <span className="font-serif-display italic text-gold text-[clamp(2.5rem,10vw,9rem)]">Nhemafuki</span>
         </h1>
-        <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-end">
-          <p className="max-w-md font-serif-display text-2xl italic text-foreground/90 animate-rise [animation-delay:240ms]">
+        <div className="mt-8 sm:mt-10 grid gap-8 md:grid-cols-2 md:items-end">
+          <p className="max-w-md font-serif-display text-xl sm:text-2xl italic text-foreground/90 animate-rise [animation-delay:240ms]">
             “Crafting emotion through motion &amp; design.”
           </p>
-          <div className="flex flex-wrap items-center gap-4 md:justify-end animate-rise [animation-delay:360ms]">
-            <a href="#work" className="group flex items-center gap-3 bg-gold px-6 py-4 text-[11px] uppercase tracking-[0.3em] text-primary-foreground transition hover:bg-foreground">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:justify-end animate-rise [animation-delay:360ms]">
+            <a href="#work" className="group flex items-center gap-3 bg-gold px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-primary-foreground transition hover:bg-foreground">
               View Portfolio
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </a>
-            <a href="#contact" className="flex items-center gap-3 border border-foreground/30 px-6 py-4 text-[11px] uppercase tracking-[0.3em] hover:border-gold hover:text-gold transition">
+            <a href="#contact" className="flex items-center gap-3 border border-foreground/30 px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] hover:border-gold hover:text-gold transition">
               Contact Me
             </a>
           </div>
