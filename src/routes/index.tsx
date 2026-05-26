@@ -993,7 +993,7 @@ function Contact() {
             </div>
             <div className="flex justify-center">
               <a
-                href="https://www.youtube.com/@KuldeepNhemafuki"
+                href="https://youtube.com/@kul7deep?si=HF22jvuz-xHsTVyl"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative"
