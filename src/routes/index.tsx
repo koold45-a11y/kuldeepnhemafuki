@@ -976,15 +976,18 @@ function Contact() {
                 <span className="text-[11px] uppercase tracking-[0.4em] text-muted-foreground">Subscribe</span>
               </div>
               <h3 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.95] mb-6">
-                The reel continues <span className="italic font-serif-display text-gold">on screen</span>.
+                The story walks <span className="italic font-serif-display text-gold">beyond the frame</span>.
               </h3>
               <p className="text-muted-foreground max-w-md leading-relaxed mb-8">
-                Behind-the-scenes, breakdowns, motion studies and unfinished frames —
-                all the stories that never made it to the final cut. Scan to step behind the curtain.
+                Step into Bhaktapur's living story — where temple bells trace the rhythm of dawn,
+                where Newar hands carry centuries of craft in every ritual, and where ancient alleys
+                whisper prayers older than memory. This is motion as preservation. A cinematic archive
+                of a culture that breathes through its stones, its festivals, and its people.
+                Scan to follow the journey where it truly unfolds — on screen.
               </p>
               <div className="flex items-center gap-4">
                 <div className="h-px flex-1 bg-border" />
-                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">YouTube / @KuldeepNhemafuki</span>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">YouTube / @kul7deep</span>
                 <div className="h-px flex-1 bg-border" />
               </div>
             </div>
