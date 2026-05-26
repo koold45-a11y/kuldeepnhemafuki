@@ -8,6 +8,8 @@ import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
+import qrYouTube from "@/assets/qr-youtube.png";
+
 
 export const Route = createFileRoute("/")({ component: Index });
 
@@ -37,7 +39,7 @@ function Nav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
         <a href="#top" onClick={() => setOpen(false)} className="flex items-center gap-2">
           <span className="font-display text-2xl text-gold">KN</span>
-          <span className="hidden text-[10px] uppercase tracking-[0.3em] text-muted-foreground sm:block">Studio · MMXXV</span>
+          <span className="hidden text-[10px] uppercase tracking-[0.3em] text-muted-foreground sm:block">Studio</span>
         </a>
         <nav className="hidden gap-6 lg:gap-8 md:flex">
           {nav.map((n) => (
@@ -960,7 +962,54 @@ function Contact() {
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </button>
             </div>
-          </form>
+      </form>
+        </div>
+      </div>
+
+      {/* YouTube QR Section */}
+      <div className="relative mx-auto mt-20 max-w-7xl px-4 sm:px-6">
+        <div className="border border-border bg-card/30 backdrop-blur-sm p-8 sm:p-12 md:p-16">
+          <div className="grid gap-12 md:grid-cols-2 items-center">
+            <div>
+              <div className="mb-6 flex items-center gap-4">
+                <span className="font-display text-gold text-sm">07</span>
+                <span className="text-[11px] uppercase tracking-[0.4em] text-muted-foreground">Subscribe</span>
+              </div>
+              <h3 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.95] mb-6">
+                The reel continues <span className="italic font-serif-display text-gold">on screen</span>.
+              </h3>
+              <p className="text-muted-foreground max-w-md leading-relaxed mb-8">
+                Behind-the-scenes, breakdowns, motion studies and unfinished frames —
+                all the stories that never made it to the final cut. Scan to step behind the curtain.
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="h-px flex-1 bg-border" />
+                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">YouTube / @KuldeepNhemafuki</span>
+                <div className="h-px flex-1 bg-border" />
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <a
+                href="https://www.youtube.com/@KuldeepNhemafuki"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+              >
+                <div className="absolute -inset-4 border border-gold/20 transition group-hover:border-gold/50" />
+                <img
+                  src={qrYouTube}
+                  alt="Scan to visit YouTube channel"
+                  width={280}
+                  height={280}
+                  loading="lazy"
+                  className="relative block w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover"
+                />
+                <div className="absolute bottom-3 right-3 bg-ink/90 px-3 py-1.5 text-[10px] uppercase tracking-[0.3em] text-gold opacity-0 transition group-hover:opacity-100">
+                  Open →
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
