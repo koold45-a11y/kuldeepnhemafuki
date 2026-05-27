@@ -75,10 +75,10 @@ function Nav() {
               key={n.id}
               href={`#${n.id}`}
               onClick={() => setOpen(false)}
-              className="flex items-center justify-between border-b border-border/60 py-4 font-display text-2xl"
+              className="group/mnav flex items-center justify-between border-b border-border/60 py-4 font-display text-2xl transition-all duration-300 hover:pl-2 hover:border-b-gold/40"
             >
-              <span>{n.label}</span>
-              <span className="text-gold text-sm">↗</span>
+              <span className="transition-colors duration-300 group-hover/mnav:text-gold">{n.label}</span>
+              <span className="text-gold text-sm opacity-0 transition-all duration-300 group-hover/mnav:opacity-100 group-hover/mnav:translate-x-1">↗</span>
             </a>
           ))}
           <a
@@ -613,7 +613,7 @@ function Lightbox({ item, onClose }: { item: WorkItem; onClose: () => void }) {
     >
       <button
         onClick={onClose}
-        className="absolute right-6 top-6 z-10 border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition"
+        className="absolute right-6 top-6 z-10 border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(201,168,78,0.35)] hover:scale-105"
       >
         Close ✕
       </button>
@@ -674,14 +674,14 @@ function Work() {
               <button
                 key={c.id}
                 onClick={() => selectCategory(c.id)}
-                className={`group relative flex flex-col items-start gap-2 border-r border-border px-5 py-6 text-left transition ${isActive ? "bg-gold text-primary-foreground" : "hover:bg-card"}`}
+                className={`group/tab relative flex flex-col items-start gap-2 border-r border-border px-5 py-6 text-left transition-all duration-500 ${isActive ? "bg-gold text-primary-foreground" : "hover:bg-card hover:shadow-[inset_0_0_30px_-10px_rgba(201,168,78,0.08)]"}`}
               >
-                <span className={`font-display text-xs ${isActive ? "text-primary-foreground/80" : "text-gold"}`}>{c.num}</span>
-                <span className="font-display text-xl md:text-2xl leading-tight">{c.label}</span>
-                <span className={`text-[10px] uppercase tracking-[0.25em] ${isActive ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                <span className={`font-display text-xs transition-colors duration-300 ${isActive ? "text-primary-foreground/80" : "text-gold group-hover/tab:text-gold/70"}`}>{c.num}</span>
+                <span className="font-display text-xl md:text-2xl leading-tight transition-all duration-300 group-hover/tab:translate-x-1">{c.label}</span>
+                <span className={`text-[10px] uppercase tracking-[0.25em] ${isActive ? "text-primary-foreground/70" : "text-muted-foreground group-hover/tab:text-foreground/70"}`}>
                   {c.subs.length} streams
                 </span>
-                {isActive && <span className="absolute right-4 top-4 text-primary-foreground">●</span>}
+                {isActive && <span className="absolute right-4 top-4 text-primary-foreground animate-shine">●</span>}
               </button>
             );
           })}
@@ -732,13 +732,13 @@ function Work() {
                     <li key={s.name}>
                       <button
                         onClick={() => setActiveSubIdx(i)}
-                        className={`group flex w-full items-baseline justify-between py-4 text-left transition ${isOn ? "pl-3" : "hover:pl-2"}`}
+                        className={`group/sub flex w-full items-baseline justify-between py-4 text-left transition-all duration-300 ${isOn ? "pl-3" : "hover:pl-3 hover:bg-card/30"}`}
                       >
                         <div className="flex items-baseline gap-4">
-                          <span className={`font-display text-xs w-6 ${isOn ? "text-foreground" : "text-gold"}`}>{String(i + 1).padStart(2, "0")}</span>
-                          <span className={`font-display text-xl md:text-2xl ${isOn ? "text-gold" : ""}`}>{s.name}</span>
+                          <span className={`font-display text-xs w-6 transition-colors duration-300 ${isOn ? "text-foreground" : "text-gold group-hover/sub:text-gold/70"}`}>{String(i + 1).padStart(2, "0")}</span>
+                          <span className={`font-display text-xl md:text-2xl transition-colors duration-300 ${isOn ? "text-gold" : "group-hover/sub:text-gold"}`}>{s.name}</span>
                         </div>
-                        <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{isOn ? "● Open" : s.count}</span>
+                        <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground transition-all duration-300 group-hover/sub:text-foreground">{isOn ? "● Open" : s.count}</span>
                       </button>
                     </li>
                   );
@@ -759,8 +759,8 @@ function Work() {
             </div>
             <ul className="flex flex-wrap gap-2 md:max-w-xl md:justify-end">
               {activeSub.highlights.map((h) => (
-                <li key={h} className="border border-border bg-card/40 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  ✦ {h}
+                <li key={h} className="group/hl border border-border bg-card/40 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-all duration-300 hover:border-gold/40 hover:text-gold hover:bg-gold/5 cursor-default">
+                  <span className="transition-transform duration-300 group-hover/hl:inline-block group-hover/hl:scale-110">✦</span> {h}
                 </li>
               ))}
             </ul>
