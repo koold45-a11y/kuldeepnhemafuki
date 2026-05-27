@@ -45,13 +45,13 @@ function Nav() {
         </a>
         <nav className="hidden gap-6 lg:gap-8 md:flex">
           {nav.map((n) => (
-            <a key={n.id} href={`#${n.id}`} className="gold-underline text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground">
+            <a key={n.id} href={`#${n.id}`} className="gold-underline text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-gold transition-colors duration-300 relative">
               {n.label}
             </a>
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <a href="#contact" className="hidden sm:inline-block border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition">
+          <a href="#contact" className="hidden sm:inline-block border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(201,168,78,0.35)] hover:border-gold">
             Let's Talk
           </a>
           <button
@@ -144,12 +144,13 @@ function Hero() {
             “Crafting emotion through motion &amp; design.”
           </p>
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:justify-end animate-rise [animation-delay:360ms]">
-            <a href="#work" className="group flex items-center gap-3 bg-gold px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-primary-foreground transition hover:bg-foreground">
+            <a href="#work" className="group flex items-center gap-3 bg-gold px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-primary-foreground transition-all duration-500 hover:bg-foreground hover:shadow-[0_0_40px_-10px_rgba(201,168,78,0.4)] hover:scale-[1.02]">
               View Portfolio
-              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-2">→</span>
             </a>
-            <a href="#contact" className="flex items-center gap-3 border border-foreground/30 px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] hover:border-gold hover:text-gold transition">
+            <a href="#contact" className="group flex items-center gap-3 border border-foreground/30 px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] hover:border-gold hover:text-gold transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(201,168,78,0.2)] hover:scale-[1.02]">
               Contact Me
+              <span className="inline-block opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">→</span>
             </a>
           </div>
         </div>
@@ -214,35 +215,35 @@ function About() {
           </div>
 
           <div className="md:col-span-5">
-            <div className="border border-border bg-card/40 p-8 backdrop-blur">
+            <div className="group border border-border bg-card/40 p-8 backdrop-blur transition-all duration-500 hover:border-gold/30 hover:shadow-[0_0_40px_-15px_rgba(201,168,78,0.12)] hover:-translate-y-1">
               <p className="mb-6 text-[11px] uppercase tracking-[0.3em] text-gold">Education</p>
             <ul className="space-y-6">
-                <li>
-                  <div className="font-display text-2xl">S.L.C.</div>
+                <li className="group/li transition-all duration-300 hover:pl-2">
+                  <div className="font-display text-2xl group-hover/li:text-gold transition-colors duration-300">S.L.C.</div>
                   <div className="text-sm text-muted-foreground">Mount Everest Higher Secondary School, Suryabinayak Bhaktapur, Nepal · 2013 AD</div>
                 </li>
-                <li>
-                  <div className="font-display text-2xl">Higher Education (Science)</div>
+                <li className="group/li transition-all duration-300 hover:pl-2">
+                  <div className="font-display text-2xl group-hover/li:text-gold transition-colors duration-300">Higher Education (Science)</div>
                   <div className="text-sm text-muted-foreground">Khwopa Higher Secondary School – Dekocha, Bhaktapur · 2014 – 2015 AD</div>
                 </li>
-                <li>
-                  <div className="font-display text-2xl">Advanced Diploma in Animation</div>
+                <li className="group/li transition-all duration-300 hover:pl-2">
+                  <div className="font-display text-2xl group-hover/li:text-gold transition-colors duration-300">Advanced Diploma in Animation</div>
                   <div className="text-sm text-muted-foreground">Graphic Design · Motion Graphics · Storytelling</div>
                 </li>
               </ul>
               <div className="mt-10 grid grid-cols-2 gap-4 border-t border-border pt-8 text-center">
-                <div>
+                <div className="group/st group/st transition-all duration-300 hover:scale-105">
                   <div className="font-display text-5xl text-gold">7<span className="text-foreground">+</span></div>
                   <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Years</div>
                 </div>
-                <div>
+                <div className="group/st transition-all duration-300 hover:scale-105">
                   <div className="font-display text-5xl text-gold">120<span className="text-foreground">+</span></div>
                   <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Projects</div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 border border-border bg-card/40 p-8 backdrop-blur">
+            <div className="mt-6 group border border-border bg-card/40 p-8 backdrop-blur transition-all duration-500 hover:border-gold/30 hover:shadow-[0_0_40px_-15px_rgba(201,168,78,0.12)] hover:-translate-y-1">
               <p className="mb-6 text-[11px] uppercase tracking-[0.3em] text-gold">Languages</p>
               <ul className="space-y-4">
                 {[
@@ -251,9 +252,9 @@ function About() {
                   { name: "English", level: "Conversational" },
                   { name: "Hindi", level: "Conversational" },
                 ].map((l) => (
-                  <li key={l.name} className="flex items-baseline justify-between gap-4 border-b border-border/60 pb-3 last:border-0 last:pb-0">
-                    <span className="font-display text-xl">{l.name}</span>
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{l.level}</span>
+                  <li key={l.name} className="group/li flex items-baseline justify-between gap-4 border-b border-border/60 pb-3 last:border-0 last:pb-0 transition-all duration-300 hover:pl-2 hover:border-b-gold/40">
+                    <span className="font-display text-xl group-hover/li:text-gold transition-colors duration-300">{l.name}</span>
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground group-hover/li:text-gold/70 transition-colors duration-300">{l.level}</span>
                   </li>
                 ))}
               </ul>
