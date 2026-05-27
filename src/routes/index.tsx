@@ -285,13 +285,13 @@ function Experience() {
           <div className="absolute left-0 md:left-[20%] top-0 bottom-0 w-px bg-border" />
           <ul className="space-y-16">
             {experiences.map((e, i) => (
-              <li key={i} className="relative grid gap-6 md:grid-cols-5 md:gap-12 pl-8 md:pl-0">
-                <div className="absolute left-0 md:left-[calc(20%-5px)] top-2 h-2.5 w-2.5 rounded-full bg-gold ring-4 ring-ink" />
+              <li key={i} className="group/li relative grid gap-6 md:grid-cols-5 md:gap-12 pl-8 md:pl-0 transition-all duration-500 hover:bg-card/30 hover:rounded-lg hover:p-4 md:hover:p-6 hover:-mx-2 md:hover:-mx-4">
+                <div className="absolute left-0 md:left-[calc(20%-5px)] top-2 h-2.5 w-2.5 rounded-full bg-gold ring-4 ring-ink group-hover/li:ring-gold/40 group-hover/li:scale-125 transition-all duration-500" />
                 <div className="md:col-span-1 md:text-right md:pr-12">
-                  <div className="font-display text-xl text-gold">{e.year}</div>
+                  <div className="font-display text-xl text-gold group-hover/li:text-gold/80 transition-colors duration-300">{e.year}</div>
                 </div>
                 <div className="md:col-span-4 md:pl-12">
-                  <h3 className="font-display text-3xl md:text-4xl">{e.role}</h3>
+                  <h3 className="font-display text-3xl md:text-4xl group-hover/li:text-gold transition-colors duration-300">{e.role}</h3>
                   <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mt-1">{e.company}</div>
                   <p className="mt-4 max-w-2xl text-muted-foreground leading-relaxed">{e.desc}</p>
                 </div>
@@ -836,11 +836,14 @@ function Skills() {
             </h2>
             <div className="grid gap-8 sm:grid-cols-2">
               {skillGroups.map((g) => (
-                <div key={g.title} className="border-t border-border pt-6">
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">{g.title}</div>
+                <div key={g.title} className="group/skill border-t border-border pt-6 transition-all duration-500 hover:border-t-gold hover:pl-3 cursor-default">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4 flex items-center gap-2">
+                    <span className="inline-block h-px w-0 bg-gold transition-all duration-500 group-hover/skill:w-4" />
+                    {g.title}
+                  </div>
                   <ul className="space-y-2">
                     {g.items.map((i) => (
-                      <li key={i} className="text-foreground/90">{i}</li>
+                      <li key={i} className="text-foreground/90 transition-all duration-300 group-hover/skill:text-foreground group-hover/skill:pl-1">{i}</li>
                     ))}
                   </ul>
                 </div>
@@ -852,8 +855,9 @@ function Skills() {
             <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-8">Software Fluency</div>
             <ul className="space-y-4">
               {software.map((s) => (
-                <li key={s} className="border-b border-border pb-4">
-                  <span className="font-display text-2xl">{s}</span>
+                <li key={s} className="group/sw border-b border-border pb-4 transition-all duration-300 hover:border-b-gold/50 hover:pl-3 cursor-default">
+                  <span className="font-display text-2xl transition-colors duration-300 group-hover/sw:text-gold">{s}</span>
+                  <span className="ml-3 inline-block opacity-0 text-gold transition-all duration-300 group-hover/sw:opacity-100 group-hover/sw:translate-x-1">→</span>
                 </li>
               ))}
             </ul>
@@ -920,23 +924,29 @@ function Contact() {
             </p>
 
             <div className="mt-12 grid gap-8 sm:grid-cols-2">
-              <div>
+              <div className="group/ct transition-all duration-300 hover:pl-2">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Email</div>
-                <a href="mailto:koold45@gmail.com" className="gold-underline">koold45@gmail.com</a>
+                <a href="mailto:koold45@gmail.com" className="gold-underline inline-flex items-center gap-2 transition-all duration-300 group-hover/ct:text-gold">
+                  koold45@gmail.com
+                  <span className="inline-block opacity-0 text-gold text-xs transition-all duration-300 group-hover/ct:opacity-100 group-hover/ct:translate-x-1">↗</span>
+                </a>
               </div>
-              <div>
+              <div className="group/ct transition-all duration-300 hover:pl-2">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Phone</div>
-                <a href="tel:+9779803443774" className="block gold-underline">+977 980 344 3774</a>
+                <a href="tel:+9779803443774" className="inline-flex items-center gap-2 gold-underline transition-all duration-300 group-hover/ct:text-gold">
+                  +977 980 344 3774
+                  <span className="inline-block opacity-0 text-gold text-xs transition-all duration-300 group-hover/ct:opacity-100 group-hover/ct:translate-x-1">↗</span>
+                </a>
               </div>
-              <div>
+              <div className="group/ct transition-all duration-300 hover:pl-2">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Studio</div>
-                <div>Bhaktapur, Nepal</div>
+                <div className="transition-colors duration-300 group-hover/ct:text-gold">Bhaktapur, Nepal</div>
               </div>
-              <div>
+              <div className="group/ct transition-all duration-300 hover:pl-2">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Social</div>
                 <div className="flex gap-4">
-                  <a href="#" className="gold-underline">Facebook</a>
-                  <a href="#" className="gold-underline">TikTok</a>
+                  <a href="#" className="inline-flex items-center gap-1 gold-underline transition-all duration-300 hover:text-gold">Facebook <span className="text-[9px] opacity-0 transition-opacity duration-300 group-hover/ct:opacity-100">↗</span></a>
+                  <a href="#" className="inline-flex items-center gap-1 gold-underline transition-all duration-300 hover:text-gold">TikTok <span className="text-[9px] opacity-0 transition-opacity duration-300 group-hover/ct:opacity-100">↗</span></a>
                 </div>
               </div>
             </div>
@@ -960,9 +970,9 @@ function Contact() {
                 <label className="block text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-2">Message</label>
                 <textarea rows={4} className="w-full bg-transparent border-b border-border py-2 focus:outline-none focus:border-gold transition resize-none" />
               </div>
-              <button type="submit" className="group flex w-full items-center justify-between bg-gold px-6 py-4 text-[11px] uppercase tracking-[0.3em] text-primary-foreground hover:bg-foreground transition">
+              <button type="submit" className="group flex w-full items-center justify-between bg-gold px-6 py-4 text-[11px] uppercase tracking-[0.3em] text-primary-foreground hover:bg-foreground transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(201,168,78,0.35)]">
                 Send Message
-                <span className="transition-transform group-hover:translate-x-1">→</span>
+                <span className="transition-transform duration-300 group-hover:translate-x-2">→</span>
               </button>
             </div>
       </form>
@@ -1023,8 +1033,8 @@ function Contact() {
       </div>
 
       <footer className="relative mx-auto mt-32 max-w-7xl border-t border-border px-6 pt-8 pb-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-        <div>© 2025 Kuldeep Nhemafuki · All Frames Reserved</div>
-        <div>Designed &amp; Directed in Bhaktapur</div>
+        <div className="group/footer transition-all duration-300 hover:text-gold cursor-default">© 2025 Kuldeep Nhemafuki · All Frames Reserved</div>
+        <div className="group/footer transition-all duration-300 hover:text-gold cursor-default">Designed &amp; Directed in Bhaktapur</div>
       </footer>
     </section>
   );
