@@ -45,13 +45,13 @@ function Nav() {
         </a>
         <nav className="hidden gap-6 lg:gap-8 md:flex">
           {nav.map((n) => (
-            <a key={n.id} href={`#${n.id}`} className="gold-underline text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground">
+            <a key={n.id} href={`#${n.id}`} className="gold-underline text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-gold transition-colors duration-300 relative">
               {n.label}
             </a>
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <a href="#contact" className="hidden sm:inline-block border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition">
+          <a href="#contact" className="hidden sm:inline-block border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(201,168,78,0.35)] hover:border-gold">
             Let's Talk
           </a>
           <button
@@ -75,10 +75,10 @@ function Nav() {
               key={n.id}
               href={`#${n.id}`}
               onClick={() => setOpen(false)}
-              className="flex items-center justify-between border-b border-border/60 py-4 font-display text-2xl"
+              className="group/mnav flex items-center justify-between border-b border-border/60 py-4 font-display text-2xl transition-all duration-300 hover:pl-2 hover:border-b-gold/40"
             >
-              <span>{n.label}</span>
-              <span className="text-gold text-sm">↗</span>
+              <span className="transition-colors duration-300 group-hover/mnav:text-gold">{n.label}</span>
+              <span className="text-gold text-sm opacity-0 transition-all duration-300 group-hover/mnav:opacity-100 group-hover/mnav:translate-x-1">↗</span>
             </a>
           ))}
           <a
@@ -144,12 +144,13 @@ function Hero() {
             “Crafting emotion through motion &amp; design.”
           </p>
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:justify-end animate-rise [animation-delay:360ms]">
-            <a href="#work" className="group flex items-center gap-3 bg-gold px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-primary-foreground transition hover:bg-foreground">
+            <a href="#work" className="group flex items-center gap-3 bg-gold px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-primary-foreground transition-all duration-500 hover:bg-foreground hover:shadow-[0_0_40px_-10px_rgba(201,168,78,0.4)] hover:scale-[1.02]">
               View Portfolio
-              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-2">→</span>
             </a>
-            <a href="#contact" className="flex items-center gap-3 border border-foreground/30 px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] hover:border-gold hover:text-gold transition">
+            <a href="#contact" className="group flex items-center gap-3 border border-foreground/30 px-5 sm:px-6 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] hover:border-gold hover:text-gold transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(201,168,78,0.2)] hover:scale-[1.02]">
               Contact Me
+              <span className="inline-block opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">→</span>
             </a>
           </div>
         </div>
@@ -214,35 +215,35 @@ function About() {
           </div>
 
           <div className="md:col-span-5">
-            <div className="border border-border bg-card/40 p-8 backdrop-blur">
+            <div className="group border border-border bg-card/40 p-8 backdrop-blur transition-all duration-500 hover:border-gold/30 hover:shadow-[0_0_40px_-15px_rgba(201,168,78,0.12)] hover:-translate-y-1">
               <p className="mb-6 text-[11px] uppercase tracking-[0.3em] text-gold">Education</p>
             <ul className="space-y-6">
-                <li>
-                  <div className="font-display text-2xl">S.L.C.</div>
+                <li className="group/li transition-all duration-300 hover:pl-2">
+                  <div className="font-display text-2xl group-hover/li:text-gold transition-colors duration-300">S.L.C.</div>
                   <div className="text-sm text-muted-foreground">Mount Everest Higher Secondary School, Suryabinayak Bhaktapur, Nepal · 2013 AD</div>
                 </li>
-                <li>
-                  <div className="font-display text-2xl">Higher Education (Science)</div>
+                <li className="group/li transition-all duration-300 hover:pl-2">
+                  <div className="font-display text-2xl group-hover/li:text-gold transition-colors duration-300">Higher Education (Science)</div>
                   <div className="text-sm text-muted-foreground">Khwopa Higher Secondary School – Dekocha, Bhaktapur · 2014 – 2015 AD</div>
                 </li>
-                <li>
-                  <div className="font-display text-2xl">Advanced Diploma in Animation</div>
+                <li className="group/li transition-all duration-300 hover:pl-2">
+                  <div className="font-display text-2xl group-hover/li:text-gold transition-colors duration-300">Advanced Diploma in Animation</div>
                   <div className="text-sm text-muted-foreground">Graphic Design · Motion Graphics · Storytelling</div>
                 </li>
               </ul>
               <div className="mt-10 grid grid-cols-2 gap-4 border-t border-border pt-8 text-center">
-                <div>
+                <div className="group/st group/st transition-all duration-300 hover:scale-105">
                   <div className="font-display text-5xl text-gold">7<span className="text-foreground">+</span></div>
                   <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Years</div>
                 </div>
-                <div>
+                <div className="group/st transition-all duration-300 hover:scale-105">
                   <div className="font-display text-5xl text-gold">120<span className="text-foreground">+</span></div>
                   <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Projects</div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 border border-border bg-card/40 p-8 backdrop-blur">
+            <div className="mt-6 group border border-border bg-card/40 p-8 backdrop-blur transition-all duration-500 hover:border-gold/30 hover:shadow-[0_0_40px_-15px_rgba(201,168,78,0.12)] hover:-translate-y-1">
               <p className="mb-6 text-[11px] uppercase tracking-[0.3em] text-gold">Languages</p>
               <ul className="space-y-4">
                 {[
@@ -251,9 +252,9 @@ function About() {
                   { name: "English", level: "Conversational" },
                   { name: "Hindi", level: "Conversational" },
                 ].map((l) => (
-                  <li key={l.name} className="flex items-baseline justify-between gap-4 border-b border-border/60 pb-3 last:border-0 last:pb-0">
-                    <span className="font-display text-xl">{l.name}</span>
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{l.level}</span>
+                  <li key={l.name} className="group/li flex items-baseline justify-between gap-4 border-b border-border/60 pb-3 last:border-0 last:pb-0 transition-all duration-300 hover:pl-2 hover:border-b-gold/40">
+                    <span className="font-display text-xl group-hover/li:text-gold transition-colors duration-300">{l.name}</span>
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground group-hover/li:text-gold/70 transition-colors duration-300">{l.level}</span>
                   </li>
                 ))}
               </ul>
@@ -284,13 +285,13 @@ function Experience() {
           <div className="absolute left-0 md:left-[20%] top-0 bottom-0 w-px bg-border" />
           <ul className="space-y-16">
             {experiences.map((e, i) => (
-              <li key={i} className="relative grid gap-6 md:grid-cols-5 md:gap-12 pl-8 md:pl-0">
-                <div className="absolute left-0 md:left-[calc(20%-5px)] top-2 h-2.5 w-2.5 rounded-full bg-gold ring-4 ring-ink" />
+              <li key={i} className="group/li relative grid gap-6 md:grid-cols-5 md:gap-12 pl-8 md:pl-0 transition-all duration-500 hover:bg-card/30 hover:rounded-lg hover:p-4 md:hover:p-6 hover:-mx-2 md:hover:-mx-4">
+                <div className="absolute left-0 md:left-[calc(20%-5px)] top-2 h-2.5 w-2.5 rounded-full bg-gold ring-4 ring-ink group-hover/li:ring-gold/40 group-hover/li:scale-125 transition-all duration-500" />
                 <div className="md:col-span-1 md:text-right md:pr-12">
-                  <div className="font-display text-xl text-gold">{e.year}</div>
+                  <div className="font-display text-xl text-gold group-hover/li:text-gold/80 transition-colors duration-300">{e.year}</div>
                 </div>
                 <div className="md:col-span-4 md:pl-12">
-                  <h3 className="font-display text-3xl md:text-4xl">{e.role}</h3>
+                  <h3 className="font-display text-3xl md:text-4xl group-hover/li:text-gold transition-colors duration-300">{e.role}</h3>
                   <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mt-1">{e.company}</div>
                   <p className="mt-4 max-w-2xl text-muted-foreground leading-relaxed">{e.desc}</p>
                 </div>
@@ -612,7 +613,7 @@ function Lightbox({ item, onClose }: { item: WorkItem; onClose: () => void }) {
     >
       <button
         onClick={onClose}
-        className="absolute right-6 top-6 z-10 border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition"
+        className="absolute right-6 top-6 z-10 border border-gold/60 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(201,168,78,0.35)] hover:scale-105"
       >
         Close ✕
       </button>
@@ -673,14 +674,14 @@ function Work() {
               <button
                 key={c.id}
                 onClick={() => selectCategory(c.id)}
-                className={`group relative flex flex-col items-start gap-2 border-r border-border px-5 py-6 text-left transition ${isActive ? "bg-gold text-primary-foreground" : "hover:bg-card"}`}
+                className={`group/tab relative flex flex-col items-start gap-2 border-r border-border px-5 py-6 text-left transition-all duration-500 ${isActive ? "bg-gold text-primary-foreground" : "hover:bg-card hover:shadow-[inset_0_0_30px_-10px_rgba(201,168,78,0.08)]"}`}
               >
-                <span className={`font-display text-xs ${isActive ? "text-primary-foreground/80" : "text-gold"}`}>{c.num}</span>
-                <span className="font-display text-xl md:text-2xl leading-tight">{c.label}</span>
-                <span className={`text-[10px] uppercase tracking-[0.25em] ${isActive ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                <span className={`font-display text-xs transition-colors duration-300 ${isActive ? "text-primary-foreground/80" : "text-gold group-hover/tab:text-gold/70"}`}>{c.num}</span>
+                <span className="font-display text-xl md:text-2xl leading-tight transition-all duration-300 group-hover/tab:translate-x-1">{c.label}</span>
+                <span className={`text-[10px] uppercase tracking-[0.25em] ${isActive ? "text-primary-foreground/70" : "text-muted-foreground group-hover/tab:text-foreground/70"}`}>
                   {c.subs.length} streams
                 </span>
-                {isActive && <span className="absolute right-4 top-4 text-primary-foreground">●</span>}
+                {isActive && <span className="absolute right-4 top-4 text-primary-foreground animate-shine">●</span>}
               </button>
             );
           })}
@@ -731,13 +732,13 @@ function Work() {
                     <li key={s.name}>
                       <button
                         onClick={() => setActiveSubIdx(i)}
-                        className={`group flex w-full items-baseline justify-between py-4 text-left transition ${isOn ? "pl-3" : "hover:pl-2"}`}
+                        className={`group/sub flex w-full items-baseline justify-between py-4 text-left transition-all duration-300 ${isOn ? "pl-3" : "hover:pl-3 hover:bg-card/30"}`}
                       >
                         <div className="flex items-baseline gap-4">
-                          <span className={`font-display text-xs w-6 ${isOn ? "text-foreground" : "text-gold"}`}>{String(i + 1).padStart(2, "0")}</span>
-                          <span className={`font-display text-xl md:text-2xl ${isOn ? "text-gold" : ""}`}>{s.name}</span>
+                          <span className={`font-display text-xs w-6 transition-colors duration-300 ${isOn ? "text-foreground" : "text-gold group-hover/sub:text-gold/70"}`}>{String(i + 1).padStart(2, "0")}</span>
+                          <span className={`font-display text-xl md:text-2xl transition-colors duration-300 ${isOn ? "text-gold" : "group-hover/sub:text-gold"}`}>{s.name}</span>
                         </div>
-                        <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{isOn ? "● Open" : s.count}</span>
+                        <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground transition-all duration-300 group-hover/sub:text-foreground">{isOn ? "● Open" : s.count}</span>
                       </button>
                     </li>
                   );
@@ -758,8 +759,8 @@ function Work() {
             </div>
             <ul className="flex flex-wrap gap-2 md:max-w-xl md:justify-end">
               {activeSub.highlights.map((h) => (
-                <li key={h} className="border border-border bg-card/40 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  ✦ {h}
+                <li key={h} className="group/hl border border-border bg-card/40 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-all duration-300 hover:border-gold/40 hover:text-gold hover:bg-gold/5 cursor-default">
+                  <span className="transition-transform duration-300 group-hover/hl:inline-block group-hover/hl:scale-110">✦</span> {h}
                 </li>
               ))}
             </ul>
@@ -835,11 +836,14 @@ function Skills() {
             </h2>
             <div className="grid gap-8 sm:grid-cols-2">
               {skillGroups.map((g) => (
-                <div key={g.title} className="border-t border-border pt-6">
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4">{g.title}</div>
+                <div key={g.title} className="group/skill border-t border-border pt-6 transition-all duration-500 hover:border-t-gold hover:pl-3 cursor-default">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-4 flex items-center gap-2">
+                    <span className="inline-block h-px w-0 bg-gold transition-all duration-500 group-hover/skill:w-4" />
+                    {g.title}
+                  </div>
                   <ul className="space-y-2">
                     {g.items.map((i) => (
-                      <li key={i} className="text-foreground/90">{i}</li>
+                      <li key={i} className="text-foreground/90 transition-all duration-300 group-hover/skill:text-foreground group-hover/skill:pl-1">{i}</li>
                     ))}
                   </ul>
                 </div>
@@ -851,8 +855,9 @@ function Skills() {
             <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-8">Software Fluency</div>
             <ul className="space-y-4">
               {software.map((s) => (
-                <li key={s} className="border-b border-border pb-4">
-                  <span className="font-display text-2xl">{s}</span>
+                <li key={s} className="group/sw border-b border-border pb-4 transition-all duration-300 hover:border-b-gold/50 hover:pl-3 cursor-default">
+                  <span className="font-display text-2xl transition-colors duration-300 group-hover/sw:text-gold">{s}</span>
+                  <span className="ml-3 inline-block opacity-0 text-gold transition-all duration-300 group-hover/sw:opacity-100 group-hover/sw:translate-x-1">→</span>
                 </li>
               ))}
             </ul>
@@ -919,23 +924,29 @@ function Contact() {
             </p>
 
             <div className="mt-12 grid gap-8 sm:grid-cols-2">
-              <div>
+              <div className="group/ct transition-all duration-300 hover:pl-2">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Email</div>
-                <a href="mailto:koold45@gmail.com" className="gold-underline">koold45@gmail.com</a>
+                <a href="mailto:koold45@gmail.com" className="gold-underline inline-flex items-center gap-2 transition-all duration-300 group-hover/ct:text-gold">
+                  koold45@gmail.com
+                  <span className="inline-block opacity-0 text-gold text-xs transition-all duration-300 group-hover/ct:opacity-100 group-hover/ct:translate-x-1">↗</span>
+                </a>
               </div>
-              <div>
+              <div className="group/ct transition-all duration-300 hover:pl-2">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Phone</div>
-                <a href="tel:+9779803443774" className="block gold-underline">+977 980 344 3774</a>
+                <a href="tel:+9779803443774" className="inline-flex items-center gap-2 gold-underline transition-all duration-300 group-hover/ct:text-gold">
+                  +977 980 344 3774
+                  <span className="inline-block opacity-0 text-gold text-xs transition-all duration-300 group-hover/ct:opacity-100 group-hover/ct:translate-x-1">↗</span>
+                </a>
               </div>
-              <div>
+              <div className="group/ct transition-all duration-300 hover:pl-2">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Studio</div>
-                <div>Bhaktapur, Nepal</div>
+                <div className="transition-colors duration-300 group-hover/ct:text-gold">Bhaktapur, Nepal</div>
               </div>
-              <div>
+              <div className="group/ct transition-all duration-300 hover:pl-2">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Social</div>
                 <div className="flex gap-4">
-                  <a href="#" className="gold-underline">Facebook</a>
-                  <a href="#" className="gold-underline">TikTok</a>
+                  <a href="#" className="inline-flex items-center gap-1 gold-underline transition-all duration-300 hover:text-gold">Facebook <span className="text-[9px] opacity-0 transition-opacity duration-300 group-hover/ct:opacity-100">↗</span></a>
+                  <a href="#" className="inline-flex items-center gap-1 gold-underline transition-all duration-300 hover:text-gold">TikTok <span className="text-[9px] opacity-0 transition-opacity duration-300 group-hover/ct:opacity-100">↗</span></a>
                 </div>
               </div>
             </div>
@@ -959,9 +970,9 @@ function Contact() {
                 <label className="block text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-2">Message</label>
                 <textarea rows={4} className="w-full bg-transparent border-b border-border py-2 focus:outline-none focus:border-gold transition resize-none" />
               </div>
-              <button type="submit" className="group flex w-full items-center justify-between bg-gold px-6 py-4 text-[11px] uppercase tracking-[0.3em] text-primary-foreground hover:bg-foreground transition">
+              <button type="submit" className="group flex w-full items-center justify-between bg-gold px-6 py-4 text-[11px] uppercase tracking-[0.3em] text-primary-foreground hover:bg-foreground transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(201,168,78,0.35)]">
                 Send Message
-                <span className="transition-transform group-hover:translate-x-1">→</span>
+                <span className="transition-transform duration-300 group-hover:translate-x-2">→</span>
               </button>
             </div>
       </form>
@@ -1022,8 +1033,8 @@ function Contact() {
       </div>
 
       <footer className="relative mx-auto mt-32 max-w-7xl border-t border-border px-6 pt-8 pb-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-        <div>© 2025 Kuldeep Nhemafuki · All Frames Reserved</div>
-        <div>Designed &amp; Directed in Bhaktapur</div>
+        <div className="group/footer transition-all duration-300 hover:text-gold cursor-default">© 2025 Kuldeep Nhemafuki · All Frames Reserved</div>
+        <div className="group/footer transition-all duration-300 hover:text-gold cursor-default">Designed &amp; Directed in Bhaktapur</div>
       </footer>
     </section>
   );
