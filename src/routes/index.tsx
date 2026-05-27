@@ -989,26 +989,29 @@ function Contact() {
               </p>
               <div className="flex items-center gap-4">
                 <div className="h-px flex-1 bg-border" />
-                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">YouTube / @kul7deep</span>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">YouTube / @Kul7Deep</span>
                 <div className="h-px flex-1 bg-border" />
               </div>
             </div>
             <div className="flex justify-center">
               <a
-                href="https://youtube.com/@kul7deep?si=HF22jvuz-xHsTVyl"
+                href={YOUTUBE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative"
+                aria-label="Open YouTube channel @Kul7Deep"
               >
                 <div className="absolute -inset-4 border border-gold/20 transition group-hover:border-gold/50" />
-                <img
-                  src={qrYouTube}
-                  alt="Scan to visit YouTube channel"
-                  width={280}
-                  height={280}
-                  loading="lazy"
-                  className="relative block w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover"
-                />
+                <div className="relative bg-white p-4 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex items-center justify-center">
+                  <QRCode
+                    value={YOUTUBE_URL}
+                    size={256}
+                    level="H"
+                    bgColor="#ffffff"
+                    fgColor="#0a0a0a"
+                    style={{ height: "100%", width: "100%" }}
+                  />
+                </div>
                 <div className="absolute bottom-3 right-3 bg-ink/90 px-3 py-1.5 text-[10px] uppercase tracking-[0.3em] text-gold opacity-0 transition group-hover:opacity-100">
                   Open →
                 </div>
