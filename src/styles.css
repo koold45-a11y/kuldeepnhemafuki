@@ -129,3 +129,86 @@
   }
   .gold-underline:hover { background-size: 100% 1px; }
 }
+
+/* ─── Global active click feedback ───────────────────────────── */
+@layer base {
+  a, button, [role="button"] {
+    transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s, background-color 0.3s, border-color 0.3s, box-shadow 0.3s, opacity 0.3s;
+  }
+  a:active, button:active, [role="button"]:active {
+    transform: scale(0.97);
+  }
+}
+
+/* ─── Scroll reveal (CSS scroll-driven animations) ─────────── */
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@supports (animation-timeline: view()) {
+  section h2,
+  section h3,
+  section h4,
+  section blockquote,
+  section .grid > *,
+  section > div > p {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+  }
+}
+
+/* ─── Reduced motion (manual toggle) ───────────────────────── */
+:root[data-reduce-motion="true"] *,
+:root[data-reduce-motion="true"] *::before,
+:root[data-reduce-motion="true"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  animation-timeline: none !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+:root[data-reduce-motion="true"] .cursor-spotlight { display: none !important; }
+:root[data-reduce-motion="true"] a:active,
+:root[data-reduce-motion="true"] button:active { transform: none !important; }
+
+/* ─── Cursor spotlight ─────────────────────────────────────── */
+.cursor-spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklch, var(--gold) 10%, transparent) 0%,
+    transparent 45%
+  );
+  mix-blend-mode: overlay;
+  transition: opacity 0.4s ease;
+}
+@media (hover: none) { .cursor-spotlight { display: none; } }
+
+/* ─── Lightbox watermark band ──────────────────────────────── */
+.wm-band {
+  position: absolute;
+  left: 0; right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: white;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  padding: 0.6em 0;
+  user-select: none;
+}
+.wm-band > span {
+  display: inline-block;
+  animation: marquee 60s linear infinite;
+  padding-left: 2em;
+}
