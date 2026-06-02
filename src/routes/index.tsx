@@ -1051,9 +1051,61 @@ function Contact() {
   );
 }
 
+function CursorSpotlight() {
+  useEffect(() => {
+    const el = document.createElement("div");
+    el.className = "cursor-spotlight";
+    document.body.appendChild(el);
+    let raf = 0;
+    const onMove = (e: PointerEvent) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        el.style.setProperty("--mx", `${e.clientX}px`);
+        el.style.setProperty("--my", `${e.clientY}px`);
+      });
+    };
+    window.addEventListener("pointermove", onMove);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      cancelAnimationFrame(raf);
+      el.remove();
+    };
+  }, []);
+  return null;
+}
+
+function MotionToggle() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const stored = localStorage.getItem("reduce-motion");
+    const initial = stored === "true";
+    setReduced(initial);
+    document.documentElement.dataset.reduceMotion = String(initial);
+  }, []);
+  const toggle = () => {
+    const next = !reduced;
+    setReduced(next);
+    document.documentElement.dataset.reduceMotion = String(next);
+    localStorage.setItem("reduce-motion", String(next));
+  };
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-pressed={reduced}
+      aria-label="Toggle reduced motion"
+      className="fixed bottom-5 right-5 z-[200] flex items-center gap-2 border border-gold/40 bg-ink/80 backdrop-blur px-3 py-2 text-[9px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-primary-foreground hover:shadow-[0_0_30px_-8px_rgba(201,168,78,0.5)]"
+    >
+      <span className={`inline-block h-1.5 w-1.5 rounded-full ${reduced ? "bg-muted-foreground" : "bg-gold animate-shine"}`} />
+      {reduced ? "Motion · Off" : "Motion · On"}
+    </button>
+  );
+}
+
 function Index() {
   return (
     <main className="relative">
+      <CursorSpotlight />
       <Nav />
       <Hero />
       <About />
@@ -1062,6 +1114,7 @@ function Index() {
       <Skills />
       <Services />
       <Contact />
+      <MotionToggle />
     </main>
   );
 }
