@@ -618,23 +618,34 @@ function Lightbox({ item, onClose }: { item: WorkItem; onClose: () => void }) {
         Close ✕
       </button>
       <div onClick={(e) => e.stopPropagation()} className="relative max-h-full max-w-6xl w-full">
-        {item.type === "image" && (
-          <img src={item.src} alt={item.title} className="max-h-[85vh] w-full object-contain" />
-        )}
-        {item.type === "video" && (
-          <video src={item.src} poster={item.poster} controls autoPlay className="max-h-[85vh] w-full" />
-        )}
-        {item.type === "youtube" && (
-          <div className="relative aspect-video w-full">
-            <iframe
-              src={item.src + "?autoplay=1"}
-              title={item.title}
-              allow="autoplay; encrypted-media; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 h-full w-full"
-            />
-          </div>
-        )}
+        <div className="relative">
+          {item.type === "image" && (
+            <img src={item.src} alt={item.title} className="max-h-[85vh] w-full object-contain" />
+          )}
+          {item.type === "video" && (
+            <video src={item.src} poster={item.poster} controls autoPlay className="max-h-[85vh] w-full" />
+          )}
+          {item.type === "youtube" && (
+            <div className="relative aspect-video w-full">
+              <iframe
+                src={item.src + "?autoplay=1"}
+                title={item.title}
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          )}
+          {item.type !== "youtube" && (
+            <div className="wm-band" aria-hidden="true">
+              <span>
+                {Array.from({ length: 8 })
+                  .map(() => "KULDEEP NHEMAFUKI · ")
+                  .join("")}
+              </span>
+            </div>
+          )}
+        </div>
         <div className="mt-4 text-center text-[11px] uppercase tracking-[0.3em] text-gold">{item.title}</div>
       </div>
     </div>
