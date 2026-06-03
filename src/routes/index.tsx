@@ -956,8 +956,8 @@ function Contact() {
               <div className="group/ct transition-all duration-300 hover:pl-2">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Social</div>
                 <div className="flex gap-4">
-                  <a href="#" className="inline-flex items-center gap-1 gold-underline transition-all duration-300 hover:text-gold">Facebook <span className="text-[9px] opacity-0 transition-opacity duration-300 group-hover/ct:opacity-100">↗</span></a>
-                  <a href="#" className="inline-flex items-center gap-1 gold-underline transition-all duration-300 hover:text-gold">TikTok <span className="text-[9px] opacity-0 transition-opacity duration-300 group-hover/ct:opacity-100">↗</span></a>
+                  <a href="https://www.instagram.com/deep_kul?igsh=cXQ5bTh5ZHI0am4y" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 gold-underline transition-all duration-300 hover:text-gold">Instagram <span className="text-[9px] opacity-0 transition-opacity duration-300 group-hover/ct:opacity-100">↗</span></a>
+                  <a href="https://www.tiktok.com/@kuldeep9849?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 gold-underline transition-all duration-300 hover:text-gold">TikTok <span className="text-[9px] opacity-0 transition-opacity duration-300 group-hover/ct:opacity-100">↗</span></a>
                 </div>
               </div>
             </div>
