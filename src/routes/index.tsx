@@ -267,12 +267,12 @@ function About() {
 }
 
 const experiences = [
-  { year: "2025 — Now", role: "Motion Graphics Mentor", company: "Broadway Infosys · Subidhanagar, Kathmandu", desc: "Mentoring the next generation of motion designers through structured curriculum, critique sessions and industry-grade project work." },
-  { year: "2021 — Now", role: "Creative Head & 2D Animator", company: "Innovate Tech · Baneswor, Kathmandu", desc: "Leading creative direction across animated campaigns and storytelling pieces. Building and guiding a multidisciplinary design and animation team." },
-  { year: "2018 — Now", role: "Freelance Motion & Graphic Designer", company: "Independent", desc: "Partnering with brands, NGOs and creators to craft emotionally resonant visuals — from logo systems to long-form animated stories." },
-  { year: "2019 — 2020", role: "Lead Animator", company: "Smaterr Pvt. Ltd. · Jadibhuti, Kathmandu", desc: "Oversaw production pipelines, quality control and creative supervision for a team of 2D animators on commercial projects." },
-  { year: "2018 — 2019", role: "Senior Graphic Designer", company: "Infinia Hub · Santinagar, Kathmandu", desc: "Delivered brand systems, marketing collateral and editorial design with a focus on narrative-led visual identities." },
-  { year: "Dec 2017 — Jun 2018", role: "Junior Graphic Designer", company: "BigData Solution · Ghatekulo Chowk, Kathmandu", desc: "Assisted the design team with graphic elements for client projects. Developed branding materials and designs for company promotions. Gained hands-on experience in Adobe Creative Suite, refining both technical and creative skills." },
+  { year: "2025 — Now", role: "Motion Graphics Mentor", company: "Broadway Infosys", location: "Subidhanagar, Kathmandu", desc: "Mentoring the next generation of motion designers through structured curriculum, critique sessions and industry-grade project work." },
+  { year: "2021 — Now", role: "Creative Head & 2D Animator", company: "Innovate Tech", location: "Baneshwor, Kathmandu", desc: "Leading creative direction across animated campaigns and storytelling pieces. Building and guiding a multidisciplinary design and animation team." },
+  { year: "2018 — Now", role: "Freelance Motion & Graphic Designer", company: "Independent", location: null, desc: "Partnering with brands, NGOs and creators to craft emotionally resonant visuals — from logo systems to long-form animated stories." },
+  { year: "2019 — 2020", role: "Lead Animator", company: "Smaterr Pvt. Ltd.", location: "Jadibhuti, Kathmandu", desc: "Oversaw production pipelines, quality control and creative supervision for a team of 2D animators on commercial projects." },
+  { year: "2018 — 2019", role: "Senior Graphic Designer", company: "Infinia Hub", location: "Santinagar, Kathmandu", desc: "Delivered brand systems, marketing collateral and editorial design with a focus on narrative-led visual identities." },
+  { year: "Dec 2017 — Jun 2018", role: "Junior Graphic Designer", company: "BigData Solution", location: "Ghatekulo Chowk, Kathmandu", desc: "Assisted the design team with graphic elements for client projects. Developed branding materials and designs for company promotions. Gained hands-on experience in Adobe Creative Suite, refining both technical and creative skills." },
 ];
 
 function Experience() {
@@ -293,6 +293,12 @@ function Experience() {
                 <div className="md:col-span-4 md:pl-12">
                   <h3 className="font-display text-3xl md:text-4xl group-hover/li:text-gold transition-colors duration-300">{e.role}</h3>
                   <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mt-1">{e.company}</div>
+                  {e.location && (
+                    <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground/50 mt-1 flex items-center gap-2">
+                      <span className="inline-block h-px w-3 bg-muted-foreground/30" />
+                      {e.location}
+                    </div>
+                  )}
                   <p className="mt-4 max-w-2xl text-muted-foreground leading-relaxed">{e.desc}</p>
                 </div>
               </li>
